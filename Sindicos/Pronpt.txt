@@ -1,26 +1,26 @@
 Atue como um Especialista em UI/UX Mobile e Desenvolvedor Front-End.
 Sua tarefa é criar o código completo (HTML5 e CSS3 + JS Básico em um único arquivo),
- para um Cartão de Visita Digital Interativo (Bio Link) voltado para uma confeiteira de Alto Padrão. 
+ para um Cartão de Visita Digital Interativo (Bio Link) voltado para um sindico profissional de Alto Padrão. 
  O design deve utilizar a tendência "Glassmorphism" (Efeito de Vidro Fosco), transmitindo luxo, modernidade e exclusividade.
  ### 1. IDENTIDADE VISUAL- Background: Use uma imagem de fundo fixa cobrindo toda a tela (use um placeholder de simbolos e 
- ferramentas da confeitaria moderna ou confeitaria de luxo escurecida com overlay preto para dar leitura).
+ ferramentas relacionados a condomínios e edificações moderna de luxo escurecida com overlay preto para dar leitura).
  - Card Principal: O conteúdo deve ficar dentro de um container central com fundo branco semitransparente (rgba), 
  borda fina branca e efeito de desfoque (backdrop-filter: blur).- Cores: Dourado Premium (#D4AF37) para destaques e botões principais.
   Texto Branco ou Cinza Claro para contraste.- Tipografia: 'Montserrat' (Google Fonts) para transmitir alegria, modernidade e seriedade.
   ### 2. ESTRUTURA DO CARTÃO (Mobile First)O layout deve ser estreito, focado na experiência mobile (como um app).
   1. Topo (Perfil): - Foto de Perfil redonda com borda dourada (use placeholder de uma mulher de roupa de confeiteira). 
-  - Nome do Profissional (H1) e Cargo "Chefe de Confeitaria de Luxo" (H2). 
-  - Pequeno texto de bio: "Transformando sonhos em delícias exclusivas."2. Botões de Ação Rápida (Grid de 2 colunas): 
+  - Nome do Profissional (H1) e Cargo "Sindico Profissional" (H2). 
+  - Pequeno texto de bio: "Transformando a gestão do seu condomínio."2. Botões de Ação Rápida (Grid de 2 colunas): 
   - Botão 1: WhatsApp (Ícone verde, chamando para API). - Botão 2: Localização/Waze (Ícone de mapa). - Botão 3: E-mail. 
   - Botão 4: Site/Portfólio.3. Botão de Destaque "Salvar Contato" (Largo): 
   - Um botão maior, com cor de fundo Dourada (#D4AF37) e texto preto, escrito "SALVAR NA AGENDA" (Simule a função vCard).
-  4. Destaque de Imóvel (Mini Carrossel ou Card): - Um card menor abaixo escrito "Destaque do Mês", com uma foto de uma sobremesa e 
+  4. Destaque de Imóvel (Mini Carrossel ou Card): - Um card menor abaixo escrito "Destaque do Mês", com uma foto de um condomínio e 
   um botão "Ver Detalhes".5. Rodapé: - Ícones de redes sociais (Instagram, LinkedIn, Facebook) minimalistas. - Copyright discreto.
   ### 3. EFEITOS E ANIMAÇÕES (O "Fator Uau")- Adicione uma animação suave de "Fade In" (entrada) quando a página carregar.
   - Os botões devem ter um efeito de escala (transform: scale) leve ao passar o mouse ou clicar.
   - O efeito de vidro (Glassmorphism) deve ser bem visível no container principal.
   ### 4. INSTRUÇÕES TÉCNICAS- Gere TODO o código (HTML, CSS e o JS para animações) em um único arquivo HTML.
-  - Use FontAwesome (CDN) para os ícones.- Use imagens via placeholder (ex: Unsplash Source) focadas em 'confeitaria' e 'business girl'.
+  - Use FontAwesome (CDN) para os ícones.- Use imagens via placeholder (ex: Unsplash Source) focadas em 'condominios' e 'business people'.
   - Certifique-se de que o design seja 100% responsivo e perfeito em telas de celular.Gere o código agora.
 
   2ºPrompt: 
