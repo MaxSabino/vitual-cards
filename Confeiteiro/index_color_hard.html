@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Chef Confeiteira - Edição Vibrant Luxury</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- FontAwesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "chef-pink": "#D81B60" /* Pink Vibrante */,
+              "chef-gold": "#C5A059" /* Dourado Sólido */,
+              "chef-dark": "#2D1B2E" /* Roxo Escuro */,
+            },
+            boxShadow: {
+              glow: "0 0 15px rgba(216, 27, 96, 0.4)",
+              solid: "4px 4px 0px rgba(0,0,0,0.1)",
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      body {
+        font-family: 'Montserrat', sans-serif;
+      }
+
+      /* Card Principal: Branco quase sólido para contraste máximo */
+      .solid-panel {
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 1);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      }
+
+      /* Botões Sólidos com gradiente sutil */
+      .btn-solid {
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+      .btn-solid:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      }
+      .btn-solid::after {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; w-full; h-full;
+        background: linear-gradient(rgba(255,255,255,0.2), transparent);
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+      .btn-solid:hover::after {
+        opacity: 1;
+      }
+
+      /* Animations */
+      @keyframes slideUp {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .animate-slide-up {
+        animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+    </style>
+    <script type="importmap">
+      {
+        "imports": {
+          "react": "https://esm.sh/react@^19.2.3",
+          "react/": "https://esm.sh/react@^19.2.3/"
+        }
+      }
+    </script>
+  </head>
+  <body class="bg-gray-900 text-slate-800 overflow-x-hidden antialiased">
+    <!-- Background Image: Dark, Rich, Vibrant Pastry -->
+    <!-- Uma imagem com contraste forte de frutas vermelhas e chocolate -->
+    <div
+      class="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat transform scale-[1.02]"
+      style="
+        background-image: url('https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?q=80&w=2574&auto=format&fit=crop');
+      "
+    ></div>
+
+    <!-- Dark Overlay: Para garantir que o cartão branco "salte" da tela -->
+    <div class="fixed inset-0 z-0 bg-black/50 backdrop-blur-[2px]"></div>
+
+    <!-- Main Container -->
+    <main
+      id="app-container"
+      class="relative z-10 w-full max-w-sm mx-auto min-h-screen sm:min-h-0 sm:my-8 p-5 flex flex-col justify-center opacity-0"
+    >
+      <!-- Solid White Card -->
+      <div
+        class="solid-panel rounded-[24px] p-6 sm:p-8 relative overflow-hidden"
+      >
+        <!-- Borda superior colorida -->
+        <div
+          class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-chef-pink via-purple-500 to-chef-gold"
+        ></div>
+
+        <!-- Profile Header -->
+        <div class="flex flex-col items-center text-center mb-8 mt-2">
+          <div class="relative group cursor-pointer inline-block">
+            <div
+              class="absolute -inset-1 bg-gradient-to-br from-chef-pink to-chef-gold rounded-full opacity-100 shadow-lg"
+            ></div>
+            <img
+              src="https://images.unsplash.com/photo-1588007376785-3001859b48b7?q=80&w=2000&auto=format&fit=crop"
+              alt="Chef Confeiteira"
+              class="relative w-32 h-32 rounded-full object-cover border-4 border-white shadow-md transform transition hover:scale-105 duration-300"
+            />
+          </div>
+
+          <h1
+            class="text-3xl font-extrabold text-gray-800 mt-4 mb-1 tracking-tight"
+          >
+            Isabella Ferraz
+          </h1>
+          <h2
+            class="text-chef-pink text-xs font-bold uppercase tracking-widest mb-3 border border-chef-pink/30 px-4 py-1.5 rounded-full bg-pink-50"
+          >
+            Master Confeiteira
+          </h2>
+          <p class="text-gray-600 text-sm font-medium leading-relaxed px-4">
+            Especialista em bolos de casamento e doces finos que encantam.
+          </p>
+        </div>
+
+        <!-- Action Grid: CORES SÓLIDAS -->
+        <div class="grid grid-cols-2 gap-4 mb-6">
+          <!-- WhatsApp: Verde Sólido -->
+          <button
+            onclick="window.open('https://wa.me/', '_blank')"
+            class="btn-solid flex flex-col items-center justify-center p-4 rounded-xl bg-[#25D366] text-white shadow-md group cursor-pointer"
+          >
+            <i
+              class="fa-brands fa-whatsapp text-2xl mb-2 group-hover:scale-110 transition-transform"
+            ></i>
+            <span class="text-xs font-bold tracking-wide">WhatsApp</span>
+          </button>
+
+          <!-- Location: Rosa Vibrante Sólido -->
+          <button
+            onclick="window.open('https://maps.google.com', '_blank')"
+            class="btn-solid flex flex-col items-center justify-center p-4 rounded-xl bg-chef-pink text-white shadow-md group cursor-pointer"
+          >
+            <i
+              class="fa-solid fa-location-dot text-2xl mb-2 group-hover:scale-110 transition-transform"
+            ></i>
+            <span class="text-xs font-bold tracking-wide">Localização</span>
+          </button>
+
+          <!-- Email: Roxo Sólido -->
+          <button
+            onclick="window.location.href = 'mailto:contato@confeitaria.com'"
+            class="btn-solid flex flex-col items-center justify-center p-4 rounded-xl bg-indigo-600 text-white shadow-md group cursor-pointer"
+          >
+            <i
+              class="fa-regular fa-envelope text-2xl mb-2 group-hover:scale-110 transition-transform"
+            ></i>
+            <span class="text-xs font-bold tracking-wide">Orçamento</span>
+          </button>
+
+          <!-- Portfolio: Gradiente Instagram Sólido -->
+          <button
+            onclick="window.open('https://instagram.com', '_blank')"
+            class="btn-solid flex flex-col items-center justify-center p-4 rounded-xl bg-gradient-to-tr from-yellow-500 via-red-500 to-purple-600 text-white shadow-md group cursor-pointer"
+          >
+            <i
+              class="fa-brands fa-instagram text-2xl mb-2 group-hover:scale-110 transition-transform"
+            ></i>
+            <span class="text-xs font-bold tracking-wide">Instagram</span>
+          </button>
+        </div>
+
+        <!-- Save Contact Button: Dourado Sólido -->
+        <button
+          onclick="saveContact()"
+          class="w-full bg-chef-gold hover:bg-[#b08d4b] text-white font-bold py-4 rounded-xl shadow-lg transform hover:scale-[1.01] transition-all duration-300 flex items-center justify-center gap-3 group cursor-pointer mb-6 border-b-4 border-[#9e7d3e]"
+        >
+          <i class="fa-regular fa-address-card text-xl"></i>
+          <span class="tracking-wider text-sm">SALVAR CONTATO VIP</span>
+        </button>
+
+        <!-- Highlight Card -->
+        <div
+          class="bg-white border-l-4 border-chef-pink rounded-r-xl shadow-md p-4 transform transition-all hover:translate-x-1 duration-300 group cursor-pointer relative overflow-hidden"
+        >
+          <div class="flex gap-4 items-center relative z-10">
+            <img
+              src="https://images.unsplash.com/photo-1535141192574-5d4897c12636?q=80&w=1976&auto=format&fit=crop"
+              alt="Bolo"
+              class="w-16 h-16 rounded-lg object-cover shadow-sm"
+            />
+            <div class="flex-1">
+              <h4 class="text-gray-800 font-bold text-base leading-tight">
+                Red Velvet Supreme
+              </h4>
+              <p class="text-gray-500 text-xs mb-1">
+                O sabor mais pedido do mês.
+              </p>
+              <span
+                class="text-chef-pink text-xs font-bold uppercase flex items-center gap-1"
+              >
+                Ver Fotos <i class="fa-solid fa-arrow-right"></i>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="mt-8 text-center">
+          <div class="flex justify-center gap-8 mb-4">
+            <a
+              href="#"
+              class="text-gray-400 hover:text-chef-pink transition-colors text-xl"
+              ><i class="fa-brands fa-facebook"></i
+            ></a>
+            <a
+              href="#"
+              class="text-gray-400 hover:text-chef-pink transition-colors text-xl"
+              ><i class="fa-brands fa-tiktok"></i
+            ></a>
+            <a
+              href="#"
+              class="text-gray-400 hover:text-chef-pink transition-colors text-xl"
+              ><i class="fa-brands fa-pinterest"></i
+            ></a>
+          </div>
+          <p
+            class="text-gray-400 text-[10px] uppercase font-bold tracking-widest opacity-70"
+          >
+            Isabella Ferraz Patisserie
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      // Animation on Load
+      document.addEventListener("DOMContentLoaded", function () {
+        setTimeout(function () {
+          const container = document.getElementById("app-container");
+          container.classList.remove("opacity-0");
+          container.classList.add("animate-slide-up");
+        }, 100);
+      });
+
+      // vCard Generation Logic
+      function saveContact() {
+        const vcardContent =
+          "BEGIN:VCARD\n" +
+          "VERSION:3.0\n" +
+          "FN:Isabella Ferraz\n" +
+          "ORG:Isabella Ferraz Patisserie\n" +
+          "TITLE:Master Confeiteira\n" +
+          "TEL;TYPE=WORK,VOICE:(11) 99999-9999\n" +
+          "EMAIL:contato@confeitaria.com\n" +
+          "END:VCARD";
+
+        const blob = new Blob([vcardContent], {
+          type: "text/vcard;charset=utf-8",
+        });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.setAttribute("download", "Isabella_Ferraz.vcf");
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+    </script>
+  </body>
+</html>

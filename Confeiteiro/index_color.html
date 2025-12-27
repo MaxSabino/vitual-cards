@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Chef Confeiteira - Edição Elegance</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- FontAwesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "rose-gold": "#B76E79",
+              "soft-pink": "#FFC5D3",
+              "deep-rose": "#9F4658",
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      body {
+        font-family: "Montserrat", sans-serif;
+      }
+
+      /* Light Glassmorphism - Vidro Branco Fosco */
+      .glass-panel {
+        background: rgba(255, 255, 255, 0.65);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.9);
+        box-shadow: 0 15px 35px rgba(183, 110, 121, 0.15);
+      }
+
+      /* Hover effect for glass buttons */
+      .glass-btn:hover {
+        background: rgba(255, 255, 255, 0.85);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(183, 110, 121, 0.2);
+      }
+
+      /* Animations */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .animate-fade-in {
+        animation: fadeIn 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-5px);
+        }
+      }
+      .animate-float {
+        animation: float 4s ease-in-out infinite;
+      }
+    </style>
+    <script type="importmap">
+      {
+        "imports": {
+          "react": "https://esm.sh/react@^19.2.3",
+          "react/": "https://esm.sh/react@^19.2.3/"
+        }
+      }
+    </script>
+  </head>
+  <body class="bg-gray-50 text-slate-700 overflow-x-hidden antialiased">
+    <!-- Background Image: Bright, Colorful, Floral -->
+    <div
+      class="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat transform scale-105"
+      style="
+        background-image: url('https://images.unsplash.com/photo-1616031036816-72f37c44b945?q=80&w=2070&auto=format&fit=crop');
+      "
+    ></div>
+
+    <!-- Light Pink Overlay for Readability -->
+    <div
+      class="fixed inset-0 z-0 bg-gradient-to-br from-white/60 via-pink-100/40 to-rose-200/30 backdrop-blur-[1px]"
+    ></div>
+
+    <!-- Main Container -->
+    <main
+      id="app-container"
+      class="relative z-10 w-full max-w-sm mx-auto min-h-screen sm:min-h-0 sm:my-10 p-6 flex flex-col opacity-0"
+    >
+      <!-- Glass Card -->
+      <div
+        class="glass-panel rounded-[2rem] p-6 sm:p-8 relative overflow-hidden"
+      >
+        <!-- Decorative Soft Blobs (Pastel Colors) -->
+        <div
+          class="absolute -top-10 -right-10 w-40 h-40 bg-pink-300 rounded-full blur-3xl opacity-30 pointer-events-none animate-float"
+        ></div>
+        <div
+          class="absolute -bottom-10 -left-10 w-40 h-40 bg-purple-300 rounded-full blur-3xl opacity-30 pointer-events-none"
+          style="animation-delay: 1s"
+        ></div>
+
+        <!-- Profile Header -->
+        <div class="flex flex-col items-center text-center mb-8 relative z-10">
+          <div class="relative group cursor-pointer">
+            <!-- Anel decorativo girando suavemente -->
+            <div
+              class="absolute -inset-1 rounded-full bg-gradient-to-tr from-pink-400 to-rose-gold opacity-70 blur-sm group-hover:opacity-100 transition duration-500"
+            ></div>
+            <img
+              src="https://images.unsplash.com/photo-1595246140625-573b715d11dc?q=80&w=2070&auto=format&fit=crop"
+              alt="Chef Confeiteira"
+              class="relative w-32 h-32 rounded-full object-cover border-[3px] border-white shadow-xl mb-4 transform transition hover:scale-105 duration-300"
+            />
+          </div>
+
+          <h1
+            class="text-3xl font-bold text-slate-800 mb-1 tracking-wide drop-shadow-sm"
+          >
+            Isabella Ferraz
+          </h1>
+          <h2
+            class="text-rose-gold text-xs font-bold uppercase tracking-[0.2em] mb-3 bg-white/50 px-3 py-1 rounded-full"
+          >
+            Haute Pâtisserie
+          </h2>
+          <p
+            class="text-slate-600 text-sm font-medium italic max-w-xs leading-relaxed"
+          >
+            "Doces que contam histórias de amor e sabor."
+          </p>
+        </div>
+
+        <!-- Action Grid -->
+        <div class="grid grid-cols-2 gap-3 mb-6 relative z-10">
+          <!-- WhatsApp -->
+          <button
+            onclick="window.open('https://wa.me/', '_blank')"
+            class="glass-btn flex flex-col items-center justify-center p-4 rounded-2xl glass-panel transition-all duration-300 group cursor-pointer"
+          >
+            <div
+              class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center mb-2 group-hover:bg-green-500 transition-colors duration-300"
+            >
+              <i
+                class="fa-brands fa-whatsapp text-lg text-green-600 group-hover:text-white transition-colors"
+              ></i>
+            </div>
+            <span
+              class="text-xs text-slate-600 font-semibold group-hover:text-green-700"
+              >WhatsApp</span
+            >
+          </button>
+
+          <!-- Location -->
+          <button
+            onclick="window.open('https://maps.google.com', '_blank')"
+            class="glass-btn flex flex-col items-center justify-center p-4 rounded-2xl glass-panel transition-all duration-300 group cursor-pointer"
+          >
+            <div
+              class="w-10 h-10 rounded-full bg-rose-100 flex items-center justify-center mb-2 group-hover:bg-rose-500 transition-colors duration-300"
+            >
+              <i
+                class="fa-solid fa-location-dot text-lg text-rose-500 group-hover:text-white transition-colors"
+              ></i>
+            </div>
+            <span
+              class="text-xs text-slate-600 font-semibold group-hover:text-rose-600"
+              >Ateliê</span
+            >
+          </button>
+
+          <!-- Email -->
+          <button
+            onclick="window.location.href = 'mailto:contato@confeitaria.com'"
+            class="glass-btn flex flex-col items-center justify-center p-4 rounded-2xl glass-panel transition-all duration-300 group cursor-pointer"
+          >
+            <div
+              class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center mb-2 group-hover:bg-purple-500 transition-colors duration-300"
+            >
+              <i
+                class="fa-regular fa-envelope text-lg text-purple-500 group-hover:text-white transition-colors"
+              ></i>
+            </div>
+            <span
+              class="text-xs text-slate-600 font-semibold group-hover:text-purple-600"
+              >Contato</span
+            >
+          </button>
+
+          <!-- Portfolio -->
+          <button
+            onclick="window.open('https://instagram.com', '_blank')"
+            class="glass-btn flex flex-col items-center justify-center p-4 rounded-2xl glass-panel transition-all duration-300 group cursor-pointer"
+          >
+            <div
+              class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center mb-2 group-hover:bg-orange-400 transition-colors duration-300"
+            >
+              <i
+                class="fa-brands fa-instagram text-lg text-orange-500 group-hover:text-white transition-colors"
+              ></i>
+            </div>
+            <span
+              class="text-xs text-slate-600 font-semibold group-hover:text-orange-600"
+              >Instagram</span
+            >
+          </button>
+        </div>
+
+        <!-- Save Contact Button (Gradient) -->
+        <button
+          onclick="saveContact()"
+          class="relative z-10 w-full bg-gradient-to-r from-rose-400 to-pink-500 hover:from-rose-500 hover:to-pink-600 text-white font-bold py-4 rounded-2xl shadow-lg hover:shadow-pink-300/50 transform hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-3 group cursor-pointer mb-6"
+        >
+          <i class="fa-regular fa-heart text-lg group-hover:animate-bounce"></i>
+          <span class="tracking-wider text-sm">SALVAR CONTATO</span>
+        </button>
+
+        <!-- Highlight Card (More colorful image) -->
+        <div
+          class="relative z-10 bg-white/60 backdrop-blur-md rounded-2xl p-4 border border-white transform transition-all hover:scale-[1.02] duration-300 shadow-sm hover:shadow-md group cursor-pointer"
+        >
+          <div class="flex items-center justify-between mb-3">
+            <h3
+              class="text-deep-rose font-bold text-sm flex items-center gap-2"
+            >
+              <span
+                class="w-2 h-2 rounded-full bg-rose-500 animate-pulse"
+              ></span>
+              Vitrine da Semana
+            </h3>
+            <span
+              class="text-[10px] bg-rose-100 text-rose-600 px-2 py-1 rounded-lg font-bold"
+              >NOVIDADE</span
+            >
+          </div>
+
+          <div class="flex gap-4 items-center">
+            <img
+              src="https://images.unsplash.com/photo-1558301211-0d8c8ddee6ec?q=80&w=1936&auto=format&fit=crop"
+              alt="Macarons"
+              class="w-20 h-20 rounded-xl object-cover shadow-sm group-hover:shadow-md transition-shadow"
+            />
+            <div class="flex-1">
+              <h4 class="text-slate-800 font-bold text-base leading-tight mb-1">
+                Macarons de Lavanda
+              </h4>
+              <p class="text-slate-500 text-xs mb-2">
+                Edição especial de primavera com recheio de amora.
+              </p>
+              <div
+                class="text-rose-500 text-xs font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform"
+              >
+                Ver Coleção
+                <i class="fa-solid fa-chevron-right text-[10px]"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="mt-8 pb-2 text-center relative z-10">
+          <div class="flex justify-center gap-6 mb-4">
+            <a
+              href="#"
+              class="w-8 h-8 flex items-center justify-center rounded-full bg-white/50 text-slate-500 hover:bg-rose-500 hover:text-white hover:scale-110 transition-all duration-300"
+            >
+              <i class="fa-brands fa-linkedin-in text-sm"></i>
+            </a>
+            <a
+              href="#"
+              class="w-8 h-8 flex items-center justify-center rounded-full bg-white/50 text-slate-500 hover:bg-pink-600 hover:text-white hover:scale-110 transition-all duration-300"
+            >
+              <i class="fa-brands fa-pinterest-p text-sm"></i>
+            </a>
+            <a
+              href="#"
+              class="w-8 h-8 flex items-center justify-center rounded-full bg-white/50 text-slate-500 hover:bg-blue-600 hover:text-white hover:scale-110 transition-all duration-300"
+            >
+              <i class="fa-brands fa-facebook-f text-sm"></i>
+            </a>
+          </div>
+          <p class="text-slate-400 text-[10px] font-medium tracking-widest">
+            DESIGNED WITH
+            <i class="fa-solid fa-heart text-rose-400 mx-1"></i> BY ISABELLA
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      // Fade In Animation on Load
+      document.addEventListener("DOMContentLoaded", function () {
+        setTimeout(function () {
+          const container = document.getElementById("app-container");
+          container.classList.remove("opacity-0");
+          container.classList.add("animate-fade-in");
+        }, 150);
+      });
+
+      // vCard Generation Logic
+      function saveContact() {
+        const vcardContent =
+          "BEGIN:VCARD\n" +
+          "VERSION:3.0\n" +
+          "FN:Isabella Ferraz\n" +
+          "ORG:Isabella Ferraz Confeitaria Fina\n" +
+          "TITLE:Cake Designer\n" +
+          "TEL;TYPE=WORK,VOICE:(11) 99999-9999\n" +
+          "EMAIL:contato@confeitaria.com\n" +
+          "END:VCARD";
+
+        const blob = new Blob([vcardContent], {
+          type: "text/vcard;charset=utf-8",
+        });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.setAttribute("download", "Isabella_Ferraz.vcf");
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+    </script>
+  </body>
+</html>
