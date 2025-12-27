@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Confeiteira Vera Contente - Digital Card</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- FontAwesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <style>
+      body {
+        font-family: "Montserrat", sans-serif;
+      }
+
+      /* Glassmorphism Class */
+      .glass-panel {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Animations */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .animate-fade-in {
+        animation: fadeIn 1s ease-out forwards;
+      }
+
+      /* Custom Tilt Animation for Profile */
+      @keyframes tilt {
+        0%,
+        100% {
+          transform: rotate(0deg);
+        }
+        25% {
+          transform: rotate(0.5deg);
+        }
+        75% {
+          transform: rotate(-0.5deg);
+        }
+      }
+      .animate-tilt {
+        animation: tilt 5s infinite linear;
+      }
+    </style>
+    <script type="importmap">
+      {
+        "imports": {
+          "react": "https://esm.sh/react@^19.2.3",
+          "react/": "https://esm.sh/react@^19.2.3/"
+        }
+      }
+    </script>
+  </head>
+  <body class="bg-black text-gray-100 overflow-x-hidden">
+    <!-- Background Image -->
+    <div
+      class="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat transform scale-105"
+      style="
+        background-image: url('https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?q=80&w=2070&auto=format&fit=crop');
+      "
+    ></div>
+
+    <!-- Dark Overlay -->
+    <div class="fixed inset-0 z-0 bg-black/70 backdrop-blur-[2px]"></div>
+
+    <!-- Main Container -->
+    <main
+      id="app-container"
+      class="relative z-10 w-full max-w-sm mx-auto min-h-screen sm:min-h-0 sm:my-10 p-6 flex flex-col opacity-0"
+    >
+      <!-- Glass Card -->
+      <div
+        class="glass-panel rounded-3xl p-6 sm:p-8 shadow-2xl border border-white/10 relative overflow-hidden"
+      >
+        <!-- Decorative Blobs -->
+        <div
+          class="absolute top-0 right-0 -mt-10 -mr-10 w-32 h-32 bg-[#D4AF37] rounded-full blur-3xl opacity-20 pointer-events-none"
+        ></div>
+        <div
+          class="absolute bottom-0 left-0 -mb-10 -ml-10 w-32 h-32 bg-white rounded-full blur-3xl opacity-10 pointer-events-none"
+        ></div>
+
+        <!-- Profile Header -->
+        <div class="flex flex-col items-center text-center mb-8">
+          <div class="relative group">
+            <div
+              class="absolute -inset-0.5 bg-[#D4AF37] rounded-full opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt blur-sm"
+            ></div>
+            <img
+              src="https://images.unsplash.com/photo-1583394293214-28ded15ee548?q=80&w=2080&auto=format&fit=crop"
+              alt="Chef Confeiteira"
+              class="relative w-32 h-32 rounded-full object-cover border-4 border-[#D4AF37] shadow-lg mb-4 transform transition hover:scale-105 duration-300"
+            />
+          </div>
+
+          <h1 class="text-3xl font-bold text-white mb-1 tracking-wide">
+            Vera Contente
+          </h1>
+          <h2
+            class="text-[#D4AF37] text-sm font-semibold uppercase tracking-wider mb-3"
+          >
+            Chefe Confeiteira
+          </h2>
+          <p
+            class="text-gray-200 text-sm font-light italic max-w-xs leading-relaxed"
+          >
+            "Transformando seus sonhos em delícias exclusivas e memórias
+            inesquecíveis."
+          </p>
+        </div>
+
+        <!-- Action Grid -->
+        <div class="grid grid-cols-2 gap-3 mb-6">
+          <!-- WhatsApp -->
+          <button
+            onclick="window.open('https://wa.me/', '_blank')"
+            class="flex flex-col items-center justify-center p-4 rounded-xl glass-panel hover:bg-white/20 transition-all duration-300 transform hover:scale-105 group cursor-pointer"
+          >
+            <i
+              class="fa-brands fa-whatsapp text-2xl mb-2 text-green-400 group-hover:text-[#D4AF37] transition-colors"
+            ></i>
+            <span class="text-xs text-white font-medium tracking-wide"
+              >WhatsApp</span
+            >
+          </button>
+
+          <!-- Location -->
+          <button
+            onclick="window.open('https://maps.google.com', '_blank')"
+            class="flex flex-col items-center justify-center p-4 rounded-xl glass-panel hover:bg-white/20 transition-all duration-300 transform hover:scale-105 group cursor-pointer"
+          >
+            <i
+              class="fa-solid fa-location-dot text-2xl mb-2 text-red-400 group-hover:text-[#D4AF37] transition-colors"
+            ></i>
+            <span class="text-xs text-white font-medium tracking-wide"
+              >Localização</span
+            >
+          </button>
+
+          <!-- Email -->
+          <button
+            onclick="window.location.href = 'mailto:contato@confeitaria.com'"
+            class="flex flex-col items-center justify-center p-4 rounded-xl glass-panel hover:bg-white/20 transition-all duration-300 transform hover:scale-105 group cursor-pointer"
+          >
+            <i
+              class="fa-regular fa-envelope text-2xl mb-2 text-white group-hover:text-[#D4AF37] transition-colors"
+            ></i>
+            <span class="text-xs text-white font-medium tracking-wide"
+              >E-mail</span
+            >
+          </button>
+
+          <!-- Portfolio -->
+          <button
+            onclick="window.open('https://instagram.com', '_blank')"
+            class="flex flex-col items-center justify-center p-4 rounded-xl glass-panel hover:bg-white/20 transition-all duration-300 transform hover:scale-105 group cursor-pointer"
+          >
+            <i
+              class="fa-solid fa-globe text-2xl mb-2 text-white group-hover:text-[#D4AF37] transition-colors"
+            ></i>
+            <span class="text-xs text-white font-medium tracking-wide"
+              >Portfólio</span
+            >
+          </button>
+        </div>
+
+        <!-- Save Contact Button -->
+        <button
+          onclick="saveContact()"
+          class="w-full bg-[#D4AF37] hover:bg-[#b5952f] text-black font-bold py-4 rounded-xl shadow-[0_0_15px_rgba(212,175,55,0.4)] hover:shadow-[0_0_25px_rgba(212,175,55,0.6)] transform hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer"
+        >
+          <i
+            class="fa-regular fa-address-book text-lg group-hover:rotate-12 transition-transform"
+          ></i>
+          SALVAR NA AGENDA
+        </button>
+
+        <!-- Highlight Card -->
+        <div
+          class="mt-8 glass-panel rounded-2xl p-4 transform transition-all hover:scale-[1.02] duration-300"
+        >
+          <div class="flex items-center justify-between mb-3">
+            <h3
+              class="text-white font-semibold text-sm border-l-2 border-[#D4AF37] pl-2"
+            >
+              Destaque do Mês
+            </h3>
+            <span
+              class="text-[10px] bg-[#D4AF37] text-black px-2 py-0.5 rounded-full font-bold"
+              >LIMITED</span
+            >
+          </div>
+
+          <div class="flex gap-4 items-center">
+            <img
+              src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=1989&auto=format&fit=crop"
+              alt="Bolo Destaque"
+              class="w-20 h-20 rounded-lg object-cover shadow-md border border-white/20"
+            />
+            <div class="flex-1">
+              <h4 class="text-white font-bold text-lg leading-tight">
+                Golden Velvet Cake
+              </h4>
+              <p class="text-gray-300 text-xs mb-2">
+                Camadas de red velvet com trufas douradas.
+              </p>
+              <button
+                class="text-[#D4AF37] text-xs font-bold hover:text-white transition-colors flex items-center gap-1 cursor-pointer"
+              >
+                Ver Detalhes <i class="fa-solid fa-arrow-right text-[10px]"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="mt-10 pb-6 text-center">
+          <div class="flex justify-center gap-6 mb-6">
+            <a
+              href="#"
+              class="text-white/70 hover:text-[#D4AF37] hover:scale-125 transition-all duration-300 text-xl"
+            >
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a
+              href="#"
+              class="text-white/70 hover:text-[#D4AF37] hover:scale-125 transition-all duration-300 text-xl"
+            >
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a
+              href="#"
+              class="text-white/70 hover:text-[#D4AF37] hover:scale-125 transition-all duration-300 text-xl"
+            >
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+          </div>
+          <p
+            class="text-gray-400 text-[10px] uppercase tracking-widest opacity-60"
+          >
+            © 2024 Isabella Ferraz Confeitaria
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      // Fade In Animation on Load
+      document.addEventListener("DOMContentLoaded", function () {
+        setTimeout(function () {
+          const container = document.getElementById("app-container");
+          container.classList.remove("opacity-0");
+          container.classList.add("animate-fade-in");
+        }, 100);
+      });
+
+      // vCard Generation Logic
+      function saveContact() {
+        const vcardContent =
+          "BEGIN:VCARD\n" +
+          "VERSION:3.0\n" +
+          "FN:Isabella Ferraz\n" +
+          "ORG:Isabella Ferraz Confeitaria de Luxo\n" +
+          "TITLE:Chefe de Confeitaria\n" +
+          "TEL;TYPE=WORK,VOICE:(11) 99999-9999\n" +
+          "EMAIL:contato@confeitaria.com\n" +
+          "END:VCARD";
+
+        const blob = new Blob([vcardContent], {
+          type: "text/vcard;charset=utf-8",
+        });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.setAttribute("download", "Isabella_Ferraz.vcf");
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+    </script>
+  </body>
+</html>

@@ -3,14 +3,14 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Confeiteira Vera Contente - Digital Card</title>
+    <title>Chef Confeiteira - Neon Night Edition</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts: Montserrat -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <!-- FontAwesome -->
@@ -19,21 +19,97 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
 
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "neon-pink": "#FF007F",
+              "neon-cyan": "#00E5FF",
+              "neon-lime": "#76FF03",
+              "neon-gold": "#FFD600",
+              "neon-purple": "#D500F9",
+              "dark-base": "#121212",
+            },
+            boxShadow: {
+              "neon-pink": "0 0 10px #FF007F, 0 0 20px #FF007F",
+              "neon-cyan": "0 0 10px #00E5FF, 0 0 20px #00E5FF",
+              "neon-lime": "0 0 10px #76FF03, 0 0 20px #76FF03",
+              "neon-gold": "0 0 10px #FFD600, 0 0 20px #FFD600",
+            },
+          },
+        },
+      };
+    </script>
+
     <style>
       body {
         font-family: "Montserrat", sans-serif;
       }
 
-      /* Glassmorphism Class */
-      .glass-panel {
-        background: rgba(255, 255, 255, 0.1);
+      /* Dark Glass Panel */
+      .dark-glass {
+        background: rgba(18, 18, 18, 0.75);
         backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+      }
+
+      /* Gradient Text */
+      .text-gradient {
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-image: linear-gradient(to right, #ff007f, #ffd600);
+      }
+
+      /* Button Styles */
+      .btn-neon {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        position: relative;
+        overflow: hidden;
+      }
+      .btn-neon:hover {
+        transform: translateY(-4px) scale(1.02);
+        border-color: rgba(255, 255, 255, 0.4);
+      }
+
+      /* Gradient Overlay on Hover for Buttons */
+      .btn-neon::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          45deg,
+          rgba(255, 255, 255, 0.1),
+          transparent
+        );
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+      .btn-neon:hover::before {
+        opacity: 1;
       }
 
       /* Animations */
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-6px);
+        }
+      }
+      .animate-float {
+        animation: float 4s ease-in-out infinite;
+      }
+
       @keyframes fadeIn {
         from {
           opacity: 0;
@@ -45,24 +121,7 @@
         }
       }
       .animate-fade-in {
-        animation: fadeIn 1s ease-out forwards;
-      }
-
-      /* Custom Tilt Animation for Profile */
-      @keyframes tilt {
-        0%,
-        100% {
-          transform: rotate(0deg);
-        }
-        25% {
-          transform: rotate(0.5deg);
-        }
-        75% {
-          transform: rotate(-0.5deg);
-        }
-      }
-      .animate-tilt {
-        animation: tilt 5s infinite linear;
+        animation: fadeIn 0.8s ease-out forwards;
       }
     </style>
     <script type="importmap">
@@ -74,207 +133,229 @@
       }
     </script>
   </head>
-  <body class="bg-black text-gray-100 overflow-x-hidden">
-    <!-- Background Image -->
+  <body class="bg-black text-white overflow-x-hidden antialiased">
+    <!-- Background Image: Dark with colorful pops (Macarons/Sweets) -->
     <div
-      class="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat transform scale-105"
+      class="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-90"
       style="
-        background-image: url('https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?q=80&w=2070&auto=format&fit=crop');
+        background-image: url('https://images.unsplash.com/photo-1558301211-0d8c8ddee6ec?q=80&w=2036&auto=format&fit=crop');
+        filter: brightness(0.4) contrast(1.2);
       "
     ></div>
 
-    <!-- Dark Overlay -->
-    <div class="fixed inset-0 z-0 bg-black/70 backdrop-blur-[2px]"></div>
+    <!-- Gradient Overlay for mood -->
+    <div
+      class="fixed inset-0 z-0 bg-gradient-to-b from-black/60 via-purple-900/20 to-black/80"
+    ></div>
 
     <!-- Main Container -->
     <main
       id="app-container"
-      class="relative z-10 w-full max-w-sm mx-auto min-h-screen sm:min-h-0 sm:my-10 p-6 flex flex-col opacity-0"
+      class="relative z-10 w-full max-w-sm mx-auto min-h-screen sm:min-h-0 sm:my-8 p-5 flex flex-col justify-center opacity-0"
     >
-      <!-- Glass Card -->
+      <!-- Dark Glass Card -->
       <div
-        class="glass-panel rounded-3xl p-6 sm:p-8 shadow-2xl border border-white/10 relative overflow-hidden"
+        class="dark-glass rounded-[32px] p-6 sm:p-8 relative overflow-hidden ring-1 ring-white/10"
       >
-        <!-- Decorative Blobs -->
+        <!-- Top Colored Line -->
         <div
-          class="absolute top-0 right-0 -mt-10 -mr-10 w-32 h-32 bg-[#D4AF37] rounded-full blur-3xl opacity-20 pointer-events-none"
+          class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-neon-pink via-neon-purple to-neon-cyan"
+        ></div>
+
+        <!-- Decorative Glows -->
+        <div
+          class="absolute -top-10 -right-10 w-32 h-32 bg-neon-pink/20 rounded-full blur-[50px] pointer-events-none"
         ></div>
         <div
-          class="absolute bottom-0 left-0 -mb-10 -ml-10 w-32 h-32 bg-white rounded-full blur-3xl opacity-10 pointer-events-none"
+          class="absolute -bottom-10 -left-10 w-32 h-32 bg-neon-cyan/20 rounded-full blur-[50px] pointer-events-none"
         ></div>
 
         <!-- Profile Header -->
-        <div class="flex flex-col items-center text-center mb-8">
-          <div class="relative group">
+        <div
+          class="flex flex-col items-center text-center mb-8 relative z-10 mt-2"
+        >
+          <div class="relative group cursor-pointer">
+            <!-- Glowing Ring -->
             <div
-              class="absolute -inset-0.5 bg-[#D4AF37] rounded-full opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt blur-sm"
+              class="absolute -inset-1 bg-gradient-to-tr from-neon-pink to-neon-gold rounded-full blur opacity-75 group-hover:opacity-100 transition duration-500 animate-spin-slow"
             ></div>
             <img
-              src="https://images.unsplash.com/photo-1583394293214-28ded15ee548?q=80&w=2080&auto=format&fit=crop"
-              alt="Chef Confeiteira"
-              class="relative w-32 h-32 rounded-full object-cover border-4 border-[#D4AF37] shadow-lg mb-4 transform transition hover:scale-105 duration-300"
+              src="./vera_perf.png"
+              alt="Chef"
+              class="relative w-32 h-32 rounded-full object-cover border-2 border-black/50 shadow-2xl"
             />
           </div>
 
-          <h1 class="text-3xl font-bold text-white mb-1 tracking-wide">
+          <h1
+            class="text-3xl font-bold mt-5 mb-1 tracking-tight text-white drop-shadow-md"
+          >
             Vera Contente
           </h1>
-          <h2
-            class="text-[#D4AF37] text-sm font-semibold uppercase tracking-wider mb-3"
-          >
-            Chefe Confeiteira
-          </h2>
+          <div class="inline-flex items-center gap-2 mb-3">
+            <span
+              class="w-2 h-2 rounded-full bg-neon-lime animate-pulse"
+            ></span>
+            <h2
+              class="text-neon-cyan text-xs font-bold uppercase tracking-[0.2em]"
+            >
+              Confeitaria Criativa
+            </h2>
+            <span
+              class="w-2 h-2 rounded-full bg-neon-lime animate-pulse"
+            ></span>
+          </div>
           <p
-            class="text-gray-200 text-sm font-light italic max-w-xs leading-relaxed"
+            class="text-gray-300 text-sm font-medium leading-relaxed max-w-[260px]"
           >
-            "Transformando seus sonhos em delícias exclusivas e memórias
-            inesquecíveis."
+            Explosão de sabores e cores em cada detalhe.
           </p>
         </div>
 
-        <!-- Action Grid -->
-        <div class="grid grid-cols-2 gap-3 mb-6">
-          <!-- WhatsApp -->
+        <!-- Action Grid: Colorful Gradient Buttons -->
+        <div class="grid grid-cols-2 gap-4 mb-8">
+          <!-- WhatsApp: Emerald Gradient -->
           <button
-            onclick="window.open('https://wa.me/', '_blank')"
-            class="flex flex-col items-center justify-center p-4 rounded-xl glass-panel hover:bg-white/20 transition-all duration-300 transform hover:scale-105 group cursor-pointer"
+            onclick="window.open('https://wa.me/5521978785313', '_blank')"
+            class="btn-neon flex flex-col items-center justify-center p-4 rounded-2xl bg-gradient-to-br from-green-500 to-emerald-700 shadow-lg group cursor-pointer hover:shadow-neon-lime/30"
           >
             <i
-              class="fa-brands fa-whatsapp text-2xl mb-2 text-green-400 group-hover:text-[#D4AF37] transition-colors"
+              class="fa-brands fa-whatsapp text-2xl mb-2 text-white group-hover:scale-110 transition-transform"
             ></i>
-            <span class="text-xs text-white font-medium tracking-wide"
+            <span class="text-xs font-bold text-white tracking-wide"
               >WhatsApp</span
             >
           </button>
 
-          <!-- Location -->
+          <!-- Location: Pink/Purple Gradient -->
           <button
-            onclick="window.open('https://maps.google.com', '_blank')"
-            class="flex flex-col items-center justify-center p-4 rounded-xl glass-panel hover:bg-white/20 transition-all duration-300 transform hover:scale-105 group cursor-pointer"
+            onclick="window.open('https://maps.app.goo.gl/CpCazHvCSVsFPp9Z8', '_blank')"
+            class="btn-neon flex flex-col items-center justify-center p-4 rounded-2xl bg-gradient-to-br from-neon-pink to-purple-600 shadow-lg group cursor-pointer hover:shadow-neon-pink/30"
           >
             <i
-              class="fa-solid fa-location-dot text-2xl mb-2 text-red-400 group-hover:text-[#D4AF37] transition-colors"
+              class="fa-solid fa-location-dot text-2xl mb-2 text-white group-hover:scale-110 transition-transform"
             ></i>
-            <span class="text-xs text-white font-medium tracking-wide"
-              >Localização</span
+            <span class="text-xs font-bold text-white tracking-wide"
+              >Ateliê</span
             >
           </button>
 
-          <!-- Email -->
+          <!-- Email: Blue/Cyan Gradient -->
+          <!-- Para chamar default mail: "onclick="window.location.href = 'mailto:verafcontente@gmail.com'" -->
           <button
-            onclick="window.location.href = 'mailto:contato@confeitaria.com'"
-            class="flex flex-col items-center justify-center p-4 rounded-xl glass-panel hover:bg-white/20 transition-all duration-300 transform hover:scale-105 group cursor-pointer"
+            onclick="window.open('https://www.instagram.com/veracontente/', '_blank')"
+            class="btn-neon flex flex-col items-center justify-center p-4 rounded-2xl bg-gradient-to-br from-blue-600 to-neon-cyan shadow-lg group cursor-pointer hover:shadow-neon-cyan/30"
           >
             <i
-              class="fa-regular fa-envelope text-2xl mb-2 text-white group-hover:text-[#D4AF37] transition-colors"
+              class="fa-regular fa-envelope text-2xl mb-2 text-white group-hover:scale-110 transition-transform"
             ></i>
-            <span class="text-xs text-white font-medium tracking-wide"
-              >E-mail</span
+            <span class="text-xs font-bold text-white tracking-wide"
+              >Orçamento</span
             >
           </button>
 
-          <!-- Portfolio -->
+          <!-- Instagram: Sunset Gradient -->
           <button
-            onclick="window.open('https://instagram.com', '_blank')"
-            class="flex flex-col items-center justify-center p-4 rounded-xl glass-panel hover:bg-white/20 transition-all duration-300 transform hover:scale-105 group cursor-pointer"
+            onclick="window.open('https://www.instagram.com/veracontente/', '_blank')"
+            class="btn-neon flex flex-col items-center justify-center p-4 rounded-2xl bg-gradient-to-br from-orange-500 to-red-600 shadow-lg group cursor-pointer hover:shadow-neon-gold/30"
           >
             <i
-              class="fa-solid fa-globe text-2xl mb-2 text-white group-hover:text-[#D4AF37] transition-colors"
+              class="fa-brands fa-instagram text-2xl mb-2 text-white group-hover:scale-110 transition-transform"
             ></i>
-            <span class="text-xs text-white font-medium tracking-wide"
-              >Portfólio</span
+            <span class="text-xs font-bold text-white tracking-wide"
+              >Instagram</span
             >
           </button>
         </div>
 
-        <!-- Save Contact Button -->
+        <!-- CTA: Gold Gradient Glow -->
         <button
           onclick="saveContact()"
-          class="w-full bg-[#D4AF37] hover:bg-[#b5952f] text-black font-bold py-4 rounded-xl shadow-[0_0_15px_rgba(212,175,55,0.4)] hover:shadow-[0_0_25px_rgba(212,175,55,0.6)] transform hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer"
+          class="w-full bg-gradient-to-r from-neon-gold to-orange-500 text-black font-extrabold py-4 rounded-2xl shadow-lg transform hover:scale-[1.02] hover:shadow-neon-gold/50 transition-all duration-300 flex items-center justify-center gap-3 group cursor-pointer mb-8 relative overflow-hidden"
         >
+          <div
+            class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"
+          ></div>
           <i
-            class="fa-regular fa-address-book text-lg group-hover:rotate-12 transition-transform"
+            class="fa-solid fa-star text-lg group-hover:rotate-180 transition-transform duration-500"
           ></i>
-          SALVAR NA AGENDA
+          <span class="tracking-wider text-sm relative z-10"
+            >SALVAR CONTATO VIP</span
+          >
         </button>
 
-        <!-- Highlight Card -->
+        <!-- Highlight Card: Darkest background to pop -->
         <div
-          class="mt-8 glass-panel rounded-2xl p-4 transform transition-all hover:scale-[1.02] duration-300"
+          class="bg-black/40 backdrop-blur-sm border border-white/10 rounded-2xl p-4 transform transition-all hover:scale-[1.02] hover:border-neon-pink/50 duration-300 group cursor-pointer"
         >
           <div class="flex items-center justify-between mb-3">
-            <h3
-              class="text-white font-semibold text-sm border-l-2 border-[#D4AF37] pl-2"
-            >
-              Destaque do Mês
+            <h3 class="text-white font-bold text-sm flex items-center gap-2">
+              <i class="fa-solid fa-crown text-neon-gold"></i>
+              Destaque da Semana
             </h3>
             <span
-              class="text-[10px] bg-[#D4AF37] text-black px-2 py-0.5 rounded-full font-bold"
-              >LIMITED</span
+              class="text-[10px] bg-neon-pink/20 text-neon-pink px-2 py-1 rounded border border-neon-pink/30 font-bold"
+              >TRENDING</span
             >
           </div>
 
           <div class="flex gap-4 items-center">
             <img
-              src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=1989&auto=format&fit=crop"
-              alt="Bolo Destaque"
-              class="w-20 h-20 rounded-lg object-cover shadow-md border border-white/20"
+              src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?q=80&w=2574&auto=format&fit=crop"
+              alt="Bolo"
+              class="w-16 h-16 rounded-xl object-cover border border-white/10 group-hover:border-neon-pink transition-colors"
             />
             <div class="flex-1">
-              <h4 class="text-white font-bold text-lg leading-tight">
-                Golden Velvet Cake
+              <h4 class="text-white font-bold text-base leading-tight">
+                Dark Berry Tart
               </h4>
-              <p class="text-gray-300 text-xs mb-2">
-                Camadas de red velvet com trufas douradas.
+              <p class="text-gray-400 text-xs mb-1">
+                Chocolate amargo e frutas silvestres.
               </p>
-              <button
-                class="text-[#D4AF37] text-xs font-bold hover:text-white transition-colors flex items-center gap-1 cursor-pointer"
+              <span
+                class="text-neon-cyan text-xs font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform"
               >
-                Ver Detalhes <i class="fa-solid fa-arrow-right text-[10px]"></i>
-              </button>
+                Ver Mais <i class="fa-solid fa-chevron-right text-[10px]"></i>
+              </span>
             </div>
           </div>
         </div>
 
         <!-- Footer -->
-        <div class="mt-10 pb-6 text-center">
-          <div class="flex justify-center gap-6 mb-6">
+        <div class="mt-8 text-center pb-2">
+          <div class="flex justify-center gap-6 mb-4">
             <a
               href="#"
-              class="text-white/70 hover:text-[#D4AF37] hover:scale-125 transition-all duration-300 text-xl"
-            >
-              <i class="fa-brands fa-instagram"></i>
-            </a>
+              class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-neon-pink hover:text-white transition-all hover:scale-110"
+              ><i class="fa-brands fa-tiktok text-sm"></i
+            ></a>
             <a
               href="#"
-              class="text-white/70 hover:text-[#D4AF37] hover:scale-125 transition-all duration-300 text-xl"
-            >
-              <i class="fa-brands fa-linkedin-in"></i>
-            </a>
+              class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-neon-cyan hover:text-black transition-all hover:scale-110"
+              ><i class="fa-brands fa-pinterest-p text-sm"></i
+            ></a>
             <a
               href="#"
-              class="text-white/70 hover:text-[#D4AF37] hover:scale-125 transition-all duration-300 text-xl"
-            >
-              <i class="fa-brands fa-facebook-f"></i>
-            </a>
+              class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-neon-purple hover:text-white transition-all hover:scale-110"
+              ><i class="fa-brands fa-twitter text-sm"></i
+            ></a>
           </div>
           <p
-            class="text-gray-400 text-[10px] uppercase tracking-widest opacity-60"
+            class="text-gray-500 text-[10px] font-semibold tracking-widest uppercase"
           >
-            © 2024 Isabella Ferraz Confeitaria
+            Designed with <span class="text-neon-pink">♥</span> by WRJ-Solutions
           </p>
         </div>
       </div>
     </main>
 
     <script>
-      // Fade In Animation on Load
+      // Animation on Load
       document.addEventListener("DOMContentLoaded", function () {
         setTimeout(function () {
           const container = document.getElementById("app-container");
           container.classList.remove("opacity-0");
           container.classList.add("animate-fade-in");
-        }, 100);
+        }, 150);
       });
 
       // vCard Generation Logic
@@ -282,11 +363,11 @@
         const vcardContent =
           "BEGIN:VCARD\n" +
           "VERSION:3.0\n" +
-          "FN:Isabella Ferraz\n" +
-          "ORG:Isabella Ferraz Confeitaria de Luxo\n" +
-          "TITLE:Chefe de Confeitaria\n" +
-          "TEL;TYPE=WORK,VOICE:(11) 99999-9999\n" +
-          "EMAIL:contato@confeitaria.com\n" +
+          "FN:Vera Contente\n" +
+          "ORG:Vera Contente Creative Patisserie\n" +
+          "TITLE:Chef Confeiteira\n" +
+          "TEL;TYPE=WORK,VOICE:(21) 978785313\n" +
+          "EMAIL:verafcontente@gmail.com\n" +
           "END:VCARD";
 
         const blob = new Blob([vcardContent], {
@@ -295,7 +376,7 @@
         const url = URL.createObjectURL(blob);
         const link = document.createElement("a");
         link.href = url;
-        link.setAttribute("download", "Isabella_Ferraz.vcf");
+        link.setAttribute("download", "Vera_Contente.vcf");
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
