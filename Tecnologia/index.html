@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dra. Elisa Vance - TechElite Digital Card</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- FontAwesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Configuration & Custom CSS -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Montserrat", "sans-serif"],
+            },
+            colors: {
+              gold: {
+                DEFAULT: "#D4AF37",
+                light: "#E5C560",
+                dark: "#B59020",
+              },
+            },
+            animation: {
+              "fade-in": "fadeIn 1s ease-out forwards",
+              "slide-up": "slideUp 0.8s ease-out forwards",
+              shimmer: "shimmer 1.5s infinite",
+            },
+            keyframes: {
+              fadeIn: {
+                "0%": { opacity: "0" },
+                "100%": { opacity: "1" },
+              },
+              slideUp: {
+                "0%": { opacity: "0", transform: "translateY(20px)" },
+                "100%": { opacity: "1", transform: "translateY(0)" },
+              },
+              shimmer: {
+                "100%": { transform: "translateX(100%)" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        background-color: #000;
+      }
+      /* Glassmorphism utility not fully covered by Tailwind v3 standard config without plugins */
+      .glass-panel {
+        background-color: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.1);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #d4af37;
+        border-radius: 3px;
+      }
+      /* Utilities for animation delays */
+      .delay-100 {
+        animation-delay: 100ms;
+      }
+      .delay-200 {
+        animation-delay: 200ms;
+      }
+      .delay-300 {
+        animation-delay: 300ms;
+      }
+      .delay-400 {
+        animation-delay: 400ms;
+      }
+      .delay-500 {
+        animation-delay: 500ms;
+      }
+      .delay-700 {
+        animation-delay: 700ms;
+      }
+      .delay-1000 {
+        animation-delay: 1000ms;
+      }
+    </style>
+    <script type="importmap">
+      {
+        "imports": {
+          "react": "https://esm.sh/react@^19.2.3",
+          "react/": "https://esm.sh/react@^19.2.3/",
+          "lucide-react": "https://esm.sh/lucide-react@^0.562.0"
+        }
+      }
+    </script>
+  </head>
+  <body
+    class="font-sans text-gray-100 antialiased selection:bg-gold selection:text-black"
+  >
+    <!-- Background Image with Overlay -->
+    <div class="fixed inset-0 z-0">
+      <img
+        src="https://images.unsplash.com/photo-1558494949-efc02570fbc9?q=80&w=2070&auto=format&fit=crop"
+        alt="Tech Background"
+        class="w-full h-full object-cover opacity-60"
+      />
+      <div
+        class="absolute inset-0 bg-black/70 bg-gradient-to-b from-black/80 via-black/50 to-black/90"
+      ></div>
+    </div>
+
+    <!-- Main Container -->
+    <div
+      class="min-h-screen w-full relative flex items-center justify-center p-0 md:p-10"
+    >
+      <!-- Glass Card -->
+      <main
+        class="relative z-10 w-full max-w-md h-full min-h-screen md:min-h-0 md:h-auto md:rounded-3xl shadow-2xl overflow-hidden glass-panel flex flex-col items-center p-6 animate-fade-in"
+      >
+        <!-- Decorative Top Shine -->
+        <div
+          class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"
+        ></div>
+
+        <!-- 1. Profile Section -->
+        <header
+          class="flex flex-col items-center text-center space-y-4 mb-8 mt-4 animate-slide-up"
+        >
+          <div class="relative group cursor-pointer">
+            <div
+              class="absolute -inset-0.5 bg-gold rounded-full opacity-75 group-hover:opacity-100 transition duration-500 blur-sm"
+            ></div>
+            <img
+              src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1000&auto=format&fit=crop"
+              alt="Dra. Elisa Vance"
+              class="relative w-32 h-32 rounded-full border-4 border-gold object-cover shadow-2xl transform transition duration-500 group-hover:scale-105"
+            />
+          </div>
+
+          <div class="space-y-1">
+            <h1
+              class="text-3xl font-bold text-white tracking-wide drop-shadow-md"
+            >
+              Dra. Elisa Vance
+            </h1>
+            <h2 class="text-gold font-medium text-sm uppercase tracking-wider">
+              Gerente Comercial de Tecnologia
+            </h2>
+          </div>
+
+          <p class="text-gray-200 text-sm max-w-xs font-light leading-relaxed">
+            Transformando a gestão de alto padrão com tecnologia e segurança.
+          </p>
+        </header>
+
+        <!-- 2. Action Buttons (Grid) -->
+        <section class="grid grid-cols-2 gap-4 w-full mb-6">
+          <!-- WhatsApp -->
+          <a
+            href="https://wa.me/"
+            target="_blank"
+            class="group flex flex-col items-center justify-center p-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl hover:bg-white/10 hover:border-gold/50 transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-gold/10 animate-slide-up delay-100 cursor-pointer text-decoration-none"
+          >
+            <div
+              class="mb-2 p-2 bg-white/5 rounded-full group-hover:bg-white/10 transition-colors"
+            >
+              <i class="fa-brands fa-whatsapp text-2xl text-green-400"></i>
+            </div>
+            <span class="text-gray-100 text-sm font-medium">WhatsApp</span>
+          </a>
+
+          <!-- Location -->
+          <a
+            href="https://waze.com/ul"
+            target="_blank"
+            class="group flex flex-col items-center justify-center p-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl hover:bg-white/10 hover:border-gold/50 transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-gold/10 animate-slide-up delay-200 cursor-pointer text-decoration-none"
+          >
+            <div
+              class="mb-2 p-2 bg-white/5 rounded-full group-hover:bg-white/10 transition-colors"
+            >
+              <i class="fa-solid fa-location-dot text-2xl text-blue-400"></i>
+            </div>
+            <span class="text-gray-100 text-sm font-medium">Localização</span>
+          </a>
+
+          <!-- Email -->
+          <a
+            href="mailto:contato@techelite.com"
+            class="group flex flex-col items-center justify-center p-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl hover:bg-white/10 hover:border-gold/50 transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-gold/10 animate-slide-up delay-300 cursor-pointer text-decoration-none"
+          >
+            <div
+              class="mb-2 p-2 bg-white/5 rounded-full group-hover:bg-white/10 transition-colors"
+            >
+              <i class="fa-regular fa-envelope text-2xl text-yellow-100"></i>
+            </div>
+            <span class="text-gray-100 text-sm font-medium">E-mail</span>
+          </a>
+
+          <!-- Portfolio -->
+          <a
+            href="#"
+            target="_blank"
+            class="group flex flex-col items-center justify-center p-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl hover:bg-white/10 hover:border-gold/50 transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-gold/10 animate-slide-up delay-400 cursor-pointer text-decoration-none"
+          >
+            <div
+              class="mb-2 p-2 bg-white/5 rounded-full group-hover:bg-white/10 transition-colors"
+            >
+              <i class="fa-solid fa-globe text-2xl text-purple-400"></i>
+            </div>
+            <span class="text-gray-100 text-sm font-medium">Portfólio</span>
+          </a>
+        </section>
+
+        <!-- 3. Save Contact (vCard) -->
+        <div class="w-full mb-8 animate-slide-up delay-500">
+          <button
+            id="save-contact-btn"
+            class="w-full relative overflow-hidden group bg-gold hover:bg-gold-light text-black font-bold py-4 px-6 rounded-xl shadow-lg shadow-gold/20 hover:shadow-gold/40 transition-all duration-300 transform hover:scale-[1.02] active:scale-95 flex items-center justify-center space-x-2 cursor-pointer border-none"
+          >
+            <span
+              class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"
+            ></span>
+            <i class="fa-solid fa-user-plus text-lg"></i>
+            <span class="tracking-wider text-sm">SALVAR NA AGENDA</span>
+          </button>
+        </div>
+
+        <!-- 4. Highlight Card -->
+        <div class="w-full mb-8 animate-slide-up delay-700">
+          <div
+            class="bg-black/40 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden hover:border-gold/30 transition-all duration-300 group cursor-pointer"
+          >
+            <div
+              class="p-4 border-b border-white/5 flex justify-between items-center"
+            >
+              <h3 class="text-gold text-xs font-bold uppercase tracking-widest">
+                Destaque do Mês
+              </h3>
+              <span class="flex h-2 w-2 relative">
+                <span
+                  class="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold opacity-75"
+                ></span>
+                <span
+                  class="relative inline-flex rounded-full h-2 w-2 bg-gold"
+                ></span>
+              </span>
+            </div>
+
+            <div class="relative h-32 overflow-hidden">
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"
+              ></div>
+              <img
+                src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop"
+                alt="Tech Highlight"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div class="absolute bottom-3 left-4 right-4 z-20">
+                <p class="text-white text-sm font-medium">
+                  Nova Solução de IA para Monitoramento 24/7
+                </p>
+              </div>
+            </div>
+
+            <div class="p-3 bg-white/5">
+              <div
+                class="w-full flex items-center justify-center space-x-2 text-xs text-gray-300 group-hover:text-gold transition-colors py-2"
+              >
+                <span>VER DETALHES</span>
+                <i
+                  class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform"
+                ></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Footer -->
+        <footer
+          class="w-full flex flex-col items-center justify-center space-y-6 pb-4 animate-slide-up delay-1000"
+        >
+          <div class="flex space-x-6">
+            <a
+              href="#"
+              class="text-gray-400 hover:text-gold hover:scale-125 transition-all duration-300"
+            >
+              <i class="fa-brands fa-instagram text-xl"></i>
+            </a>
+            <a
+              href="#"
+              class="text-gray-400 hover:text-gold hover:scale-125 transition-all duration-300"
+            >
+              <i class="fa-brands fa-linkedin text-xl"></i>
+            </a>
+            <a
+              href="#"
+              class="text-gray-400 hover:text-gold hover:scale-125 transition-all duration-300"
+            >
+              <i class="fa-brands fa-facebook text-xl"></i>
+            </a>
+          </div>
+
+          <div class="text-center">
+            <p
+              class="text-gray-500 text-[10px] uppercase tracking-widest font-light"
+            >
+              © 2024 TechElite. All Rights Reserved.
+            </p>
+          </div>
+        </footer>
+      </main>
+    </div>
+
+    <!-- Logic Script -->
+    <script>
+      document
+        .getElementById("save-contact-btn")
+        .addEventListener("click", function () {
+          const contact = {
+            name: "Dra. Elisa Vance",
+            role: "Gerente Comercial de Tecnologia",
+            email: "contato@techelite.com",
+            url: "https://techelite.bio",
+            note: "Transformando a gestão de alto padrão com tecnologia e segurança.",
+          };
+
+          const vCardData = [
+            "BEGIN:VCARD",
+            "VERSION:3.0",
+            `FN:${contact.name}`,
+            `TITLE:${contact.role}`,
+            `EMAIL;TYPE=WORK:${contact.email}`,
+            `URL:${contact.url}`,
+            `NOTE:${contact.note}`,
+            "END:VCARD",
+          ].join("\n");
+
+          const blob = new Blob([vCardData], { type: "text/vcard" });
+          const url = window.URL.createObjectURL(blob);
+          const link = document.createElement("a");
+          link.href = url;
+          link.setAttribute(
+            "download",
+            `${contact.name.replace(/\s+/g, "_")}.vcf`
+          );
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        });
+    </script>
+  </body>
+</html>

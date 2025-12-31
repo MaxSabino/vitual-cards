@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Página Inicial - Alfa Serrana Corretora de Seguros</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#f5a623", // Extracted yellow/orange from logo
+              secondary: "#1a3c6e", // Extracted blue from logo
+              "background-light": "#f8f9fa",
+              "background-dark": "#121212",
+              "surface-light": "#ffffff",
+              "surface-dark": "#1e1e1e",
+              "text-light": "#333333",
+              "text-dark": "#e0e0e0",
+            },
+            fontFamily: {
+              display: ["Montserrat", "sans-serif"],
+              body: ["Montserrat", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.5rem",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .hero-overlay {
+        background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6));
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark font-body transition-colors duration-300"
+  >
+    <header
+      class="sticky top-0 z-50 bg-white dark:bg-surface-dark shadow-md transition-colors duration-300"
+    >
+      <div
+        class="container mx-auto px-4 py-4 flex justify-between items-center"
+      >
+        <a class="flex items-center space-x-2" href="#">
+          <svg
+            class="h-10 w-auto text-secondary dark:text-primary"
+            fill="currentColor"
+            viewBox="0 0 200 60"
+          >
+            <path
+              d="M20,10 Q30,0 40,10 T60,10"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="5"
+            ></path>
+            <text
+              fill="currentColor"
+              font-family="Montserrat"
+              font-size="28"
+              font-weight="bold"
+              x="50"
+              y="38"
+            >
+              Alfa Serrana
+            </text>
+            <text
+              fill="currentColor"
+              font-family="Montserrat"
+              font-size="10"
+              letter-spacing="2"
+              x="50"
+              y="52"
+            >
+              CORRETORA DE SEGUROS
+            </text>
+          </svg>
+        </a>
+        <nav class="hidden md:flex space-x-8 items-center">
+          <a
+            class="text-secondary dark:text-white hover:text-primary dark:hover:text-primary font-medium transition"
+            href="#"
+            >Início</a
+          >
+          <a
+            class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary font-medium transition"
+            href="#"
+            >Quem Somos</a
+          >
+          <div class="relative group">
+            <button
+              class="flex items-center text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary font-medium transition"
+            >
+              Área do Cliente
+              <span class="material-icons text-sm ml-1">expand_more</span>
+            </button>
+          </div>
+          <a
+            class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary font-medium transition"
+            href="#"
+            >Para Você</a
+          >
+          <a
+            class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary font-medium transition"
+            href="#"
+            >Para Empresas</a
+          >
+        </nav>
+        <button class="md:hidden text-secondary dark:text-white">
+          <span class="material-icons">menu</span>
+        </button>
+      </div>
+    </header>
+    <section
+      class="relative h-[600px] flex items-center justify-center text-center text-white"
+    >
+      <div class="absolute inset-0 z-0">
+        <img
+          alt="Família segurando modelo de casa"
+          class="w-full h-full object-cover"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQiuM3d3CJPsuG9VNgiQaFon4pBS0e3btgWB24twefbcPnM7GgunEd_1KG4E_fTRewF03S2m32SnLuL2V1fjK0cimNP7TWOLvmKvs00JexCY-8OA6uYEeoDnEFa6iVY1I5u8sBRV2XAlVp_ErhTMSc2qHKPco0-Ksl5eaGezj8mvyK8OKVl03AnFWOv7buNOMil8FUuS5EJUr7ZICmQ_WduVS95ElBUbK5SsdHLG-qPq3EPrhkiUpCNWdIJTRrNXJaHeYYnjgxLR_k"
+        />
+        <div class="hero-overlay absolute inset-0"></div>
+      </div>
+      <div class="relative z-10 container mx-auto px-4">
+        <h1
+          class="text-4xl md:text-6xl font-bold mb-6 tracking-wide drop-shadow-md"
+        >
+          SEGURO RESIDENCIAL
+        </h1>
+        <p
+          class="text-lg md:text-xl mb-8 max-w-2xl mx-auto font-light drop-shadow-sm"
+        >
+          SUA CASA PROTEGIDA COM UM SEGURO SIMPLIFICADO E DE BAIXO CUSTO,
+          GARANTINDO SUA TRANQUILIDADE.
+        </p>
+        <a
+          class="inline-block border-2 border-white hover:bg-white hover:text-secondary text-white font-semibold py-3 px-8 rounded transition duration-300 uppercase tracking-wider"
+          href="#"
+        >
+          Residencial
+        </a>
+      </div>
+    </section>
+    <div
+      class="bg-surface-dark text-white py-3 px-4 text-center text-sm font-medium tracking-wide"
+    >
+      <div
+        class="container mx-auto flex flex-col md:flex-row justify-between items-center"
+      >
+        <div class="flex items-center mb-2 md:mb-0">
+          <span
+            class="bg-primary text-secondary px-2 py-0.5 rounded text-xs font-bold mr-2"
+            >AUTO</span
+          >
+          <span>CHEVROLET AUTO IMPERIAL</span>
+        </div>
+        <span class="text-primary uppercase text-xs md:text-sm"
+          >Alfa Serrana, corretora oficial do Grupo Chevrolet Auto
+          Imperial</span
+        >
+      </div>
+    </div>
+    <section
+      class="py-16 bg-white dark:bg-surface-dark transition-colors duration-300"
+    >
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div
+            class="text-center p-8 bg-gray-50 dark:bg-[#252525] rounded-lg shadow-sm hover:shadow-md transition duration-300 group border-b-4 border-transparent hover:border-primary"
+          >
+            <div class="text-secondary dark:text-primary mb-4">
+              <span
+                class="material-icons text-6xl group-hover:scale-110 transition-transform"
+                >directions_car</span
+              >
+            </div>
+            <h3
+              class="text-xl font-bold text-secondary dark:text-white mb-3 uppercase"
+            >
+              Auto
+            </h3>
+            <p class="text-gray-600 dark:text-gray-400 text-sm mb-6">
+              Seu Auto protegido na medida certa por um valor que com certeza
+              cabe no seu bolso.
+            </p>
+            <a
+              class="text-secondary dark:text-primary font-bold text-sm uppercase flex items-center justify-center hover:underline"
+              href="#"
+            >
+              Conheça
+              <span class="material-icons text-sm ml-1">arrow_forward</span>
+            </a>
+          </div>
+          <div
+            class="text-center p-8 bg-gray-50 dark:bg-[#252525] rounded-lg shadow-sm hover:shadow-md transition duration-300 group border-b-4 border-transparent hover:border-primary"
+          >
+            <div class="text-secondary dark:text-primary mb-4">
+              <span
+                class="material-icons text-6xl group-hover:scale-110 transition-transform"
+                >home</span
+              >
+            </div>
+            <h3
+              class="text-xl font-bold text-secondary dark:text-white mb-3 uppercase"
+            >
+              Consórcio
+            </h3>
+            <p class="text-gray-600 dark:text-gray-400 text-sm mb-6">
+              Quer conquistar o carro 0km ou a casa própria e não sabe como? Nós
+              podemos te ajudar.
+            </p>
+            <a
+              class="text-secondary dark:text-primary font-bold text-sm uppercase flex items-center justify-center hover:underline"
+              href="#"
+            >
+              Conheça
+              <span class="material-icons text-sm ml-1">arrow_forward</span>
+            </a>
+          </div>
+          <div
+            class="text-center p-8 bg-gray-50 dark:bg-[#252525] rounded-lg shadow-sm hover:shadow-md transition duration-300 group border-b-4 border-transparent hover:border-primary"
+          >
+            <div class="text-secondary dark:text-primary mb-4">
+              <span
+                class="material-icons text-6xl group-hover:scale-110 transition-transform"
+                >laptop_mac</span
+              >
+            </div>
+            <h3
+              class="text-xl font-bold text-secondary dark:text-white mb-3 uppercase"
+            >
+              Equipamentos Portáteis
+            </h3>
+            <p class="text-gray-600 dark:text-gray-400 text-sm mb-6">
+              Proteja seu aparelho portátil de furtos, roubos e de danos
+              casuais. Entre em contato conosco!
+            </p>
+            <a
+              class="text-secondary dark:text-primary font-bold text-sm uppercase flex items-center justify-center hover:underline"
+              href="#"
+            >
+              Conheça
+              <span class="material-icons text-sm ml-1">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      class="py-12 bg-gray-50 dark:bg-[#1a1a1a] border-t border-b border-gray-200 dark:border-gray-800"
+    >
+      <div class="container mx-auto px-4 text-center">
+        <h2
+          class="text-2xl font-bold text-secondary dark:text-white uppercase mb-2"
+        >
+          Seguradoras e Operadoras
+        </h2>
+        <p
+          class="text-gray-500 dark:text-gray-400 text-sm mb-10 max-w-3xl mx-auto"
+        >
+          Solicite uma cotação sem compromisso e receba um atendimento
+          diferenciado dos nossos especialistas com condições especiais e preços
+          imbatíveis.
+        </p>
+        <div
+          class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-75 grayscale hover:grayscale-0 transition-all duration-500"
+        >
+          <div
+            class="text-xl font-bold text-[#003781] dark:text-white flex items-center"
+          >
+            <span class="material-icons mr-1">security</span> Allianz
+          </div>
+          <div
+            class="text-xl font-bold text-[#0099D8] dark:text-white flex items-center"
+          >
+            <span class="material-icons mr-1">shield</span> Azul
+          </div>
+          <div
+            class="text-xl font-bold text-[#CC0000] dark:text-white flex items-center"
+          >
+            <span class="material-icons mr-1">account_balance</span> Bradesco
+          </div>
+          <div
+            class="text-xl font-bold text-[#007A33] dark:text-white flex items-center"
+          >
+            <span class="material-icons mr-1">health_and_safety</span> HDI
+          </div>
+          <div
+            class="text-xl font-bold text-[#FF6600] dark:text-white flex items-center"
+          >
+            <span class="material-icons mr-1">verified_user</span> Liberty
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="py-16 bg-white dark:bg-surface-dark">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2
+            class="text-3xl font-bold text-secondary dark:text-white uppercase mb-2"
+          >
+            Você Protegido Sempre
+          </h2>
+          <div class="w-24 h-1 bg-primary mx-auto mb-4"></div>
+          <p class="text-gray-500 dark:text-gray-400 text-sm uppercase">
+            Faça uma cotação diretamente no site das seguradoras. É rápido e
+            fácil!
+          </p>
+          <div class="flex justify-center mt-6 gap-2">
+            <button
+              class="px-3 py-1 text-xs border border-gray-300 dark:border-gray-600 rounded hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-gray-300"
+            >
+              DEFAULT
+            </button>
+            <button
+              class="px-3 py-1 text-xs border border-gray-300 dark:border-gray-600 rounded hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-gray-300"
+            >
+              TITLE
+            </button>
+            <button
+              class="px-3 py-1 text-xs border border-gray-300 dark:border-gray-600 rounded hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-gray-300"
+            >
+              DATE
+            </button>
+            <button
+              class="px-3 py-1 text-xs border border-gray-300 dark:border-gray-600 rounded hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-gray-300"
+            >
+              RANDOM
+            </button>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div
+            class="group bg-white dark:bg-[#252525] rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300"
+          >
+            <div class="relative h-48 overflow-hidden">
+              <img
+                alt="Carro"
+                class="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEhAzxNGuTgoFFTFGWzc5JCmZ33ZGyP2iI5Ae0UTnZs8CrH273SfKZOVCXpMtfjc7BjH9wzvSAVfpCC_tC9vP2pEwUeQm-P8baB4hdsL1_W_zGDBdt2paFtpdDuecqpkHes0phvQvL7S_p7bTP4FBrCVBlxaAypzK28pUX6FS4DCstICUy23OFujm6fWEJqRtJjjpAFpHjI7d6p3B-7nAHjgFzDXbSVHBU7pPa6XTMjKCRuXHEVaKfycJFINcc05_z15LeqHy8FneP"
+              />
+            </div>
+            <div class="p-4 border-b border-gray-100 dark:border-gray-700">
+              <h3
+                class="font-bold text-lg text-secondary dark:text-white uppercase mb-1"
+              >
+                Seguro Auto
+              </h3>
+              <a
+                class="text-xs text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition"
+                href="#"
+                >Solicitar Cotação</a
+              >
+            </div>
+          </div>
+          <div
+            class="group bg-white dark:bg-[#252525] rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300"
+          >
+            <div class="relative h-48 overflow-hidden">
+              <img
+                alt="Família correndo"
+                class="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBBzn1v9TzjgxZST9xCiMfNBRifsNTEf7L2WIVGFqdf3keXJwQdrqj6pY-YEGZBJekm1xVTw5cDiuK3_og5-x8sakeJTWeAIuBCoCU6bnszKuOH2qVNRoaNm2MS6XtcoVQwc4yak_d9-a7QI6qSvZN4WloymlQt0kGasT4g847vd13N6JVd2nh_Iqz05c0wnakKfyrmaZDigwuCThctsv-GncYXuCG5XnHiZbT7FviWPINzTDu808RbijZ21C6RnXcm-cv4RJ4hshB"
+              />
+            </div>
+            <div class="p-4 border-b border-gray-100 dark:border-gray-700">
+              <h3
+                class="font-bold text-lg text-secondary dark:text-white uppercase mb-1"
+              >
+                Vida Mais Simples
+              </h3>
+              <a
+                class="text-xs text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition"
+                href="#"
+                >Solicitar Cotação</a
+              >
+            </div>
+          </div>
+          <div
+            class="group bg-white dark:bg-[#252525] rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300"
+          >
+            <div class="relative h-48 overflow-hidden">
+              <img
+                alt="Viagem"
+                class="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAm487yQVqS_f7Ei87rWDWwF1tpk_oUDWIEXkY02dEoFV__ymt4qn4YG6V9l_-8TMZcL85RcvE1IuyLWrN9nlwF8o_qlXHZURFmhxyMcLRJ8Qppy6Sxqi_nSZNn9NykixF3SSFPj2NLQoMAHWq2oCgccNPOJQAJ_jnHTzhvAJojfdfnEOsFUK3EF6tHMSa9EJYf73z-g3w2lBkj4JSHem2wvB0WSyW3qYwJF8e-7QKWh4rGit6I0bFYvZNXe6SkMvebfK3ZXSc205X6"
+              />
+            </div>
+            <div class="p-4 border-b border-gray-100 dark:border-gray-700">
+              <h3
+                class="font-bold text-lg text-secondary dark:text-white uppercase mb-1"
+              >
+                Seguro Viagem
+              </h3>
+              <a
+                class="text-xs text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition"
+                href="#"
+                >Solicitar Cotação</a
+              >
+            </div>
+          </div>
+          <div
+            class="group bg-white dark:bg-[#252525] rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300"
+          >
+            <div class="relative h-48 overflow-hidden">
+              <img
+                alt="Médico"
+                class="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuyBFta-Ud47KB6p5Hka-cKuOCSIku4KJHwzjzGHAudul22bmcTVSLpAAxzh4l3HovjfpDvT-3SUxceNgyhpOLw1YqNzt9tJoRnbqhU0vb1VybwRA5YnkIRUCgnPFD2By0i40auVRu60kpuekG4K8Bfsewj045zhS62DLgsFQcW9tCuREt65Yel_YNPB9B-KvtREGvWdz0od1RsN09kaA8aCRDFVDlRe3WijeWuvzPVSDnqsqLqmqBDiinTdMwsblu8fMUt837ZqS3"
+              />
+            </div>
+            <div class="p-4 border-b border-gray-100 dark:border-gray-700">
+              <h3
+                class="font-bold text-lg text-secondary dark:text-white uppercase mb-1"
+              >
+                Acidentes Pessoais
+              </h3>
+              <a
+                class="text-xs text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition"
+                href="#"
+                >Solicitar Cotação</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      class="py-24 bg-fixed bg-cover bg-center relative"
+      style="
+        background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDtkCdKhppitfYK8OzutAoi8zkN2D-3As4d7RB6Rm3kwVcMhrOawR5KPQSEs0ygonJtoeBX1n935kbEEuZuAgsTVIP9w0uMgxrQxI6DbSPspq3GP6dIXH8QaqW2z8onCXo-l65Bp4xUZn_Mtj0RaS2pOYS2oDdvTAQJu_MzyH8eopWtRXWqwD_u4TmM1LkZIXYA9A0FbfSuPh5TsMohtEdWNHhEkVH2L0Roips-6vgvwrNDfY7xa9zBlF1XjQXoRHYYY6xbFVgrM3Rf');
+      "
+    >
+      <div class="absolute inset-0 bg-secondary/80 dark:bg-black/70"></div>
+      <div class="container mx-auto px-4 relative z-10 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+          Tranquilidade para você e sua família
+        </h2>
+        <p class="text-white/80 text-lg max-w-2xl mx-auto mb-8">
+          Nossa missão é oferecer as melhores soluções em seguros com um
+          atendimento humanizado e eficiente.
+        </p>
+        <a
+          class="bg-primary hover:bg-white text-secondary hover:text-secondary font-bold py-3 px-8 rounded transition duration-300"
+          href="#"
+          >Fale Conosco</a
+        >
+      </div>
+    </section>
+    <section class="py-16 bg-gray-50 dark:bg-[#181818]">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2
+            class="text-3xl font-bold text-secondary dark:text-white uppercase mb-2"
+          >
+            Nossos Produtos
+          </h2>
+          <div class="w-24 h-1 bg-primary mx-auto mb-8"></div>
+          <div class="flex flex-wrap justify-center gap-2 mb-8">
+            <button
+              class="px-4 py-2 bg-secondary text-white text-xs font-bold uppercase rounded shadow-sm"
+            >
+              Todos
+            </button>
+            <button
+              class="px-4 py-2 bg-white dark:bg-[#252525] text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 text-xs font-bold uppercase rounded border border-gray-200 dark:border-gray-700 transition"
+            >
+              Empresarial
+            </button>
+            <button
+              class="px-4 py-2 bg-white dark:bg-[#252525] text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 text-xs font-bold uppercase rounded border border-gray-200 dark:border-gray-700 transition"
+            >
+              Pessoais
+            </button>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div
+            class="bg-white dark:bg-[#252525] rounded-lg shadow-sm hover:shadow-lg transition duration-300 flex flex-col h-full"
+          >
+            <div class="h-48 overflow-hidden rounded-t-lg">
+              <img
+                alt="Automóvel"
+                class="w-full h-full object-cover hover:scale-105 transition duration-500"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIA5mRSoMibtTqEbcuvRLu-8NDVz04i8gnDfI_sYgYXLberFmR44IypNma-unK7mvkW-VlpivqJgwW3uRXQxmuFvZyf-O1wHBliDFegqzTeyWpQvrcTeppo3UgjbmHvv2oJcgueTnPkQ7YW_PspnmwmNPqOiZYfr8jTa7YLWaPDi5TqWKkLPeyYtjLqpIZ6SCsN-SSHfnRefwpjiOuX4qPLVvGC9KOEzLvmqLvxiUlLTBhEkKlkrQW4aRhyT4g2hBvW4mwmXtSo2eX"
+              />
+            </div>
+            <div class="p-6 flex-grow flex flex-col">
+              <h3
+                class="text-lg font-bold text-secondary dark:text-white uppercase mb-2"
+              >
+                Automóvel
+              </h3>
+              <p
+                class="text-xs text-gray-500 dark:text-gray-400 mb-4 flex-grow leading-relaxed"
+              >
+                Contrate o seguro para o seu veículo e tenha mais serviços e
+                benefícios, além de proteção e tranquilidade.
+              </p>
+              <div class="mt-auto">
+                <span
+                  class="inline-block bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 text-[10px] px-2 py-1 rounded mb-3"
+                  >Pessoais</span
+                >
+                <a
+                  class="block text-primary text-xs font-bold uppercase hover:underline"
+                  href="#"
+                  >Solicitar Cotação</a
+                >
+              </div>
+            </div>
+          </div>
+          <div
+            class="bg-white dark:bg-[#252525] rounded-lg shadow-sm hover:shadow-lg transition duration-300 flex flex-col h-full"
+          >
+            <div class="h-48 overflow-hidden rounded-t-lg">
+              <img
+                alt="Empresarial"
+                class="w-full h-full object-cover hover:scale-105 transition duration-500"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBga8sGxS5fVSIU7akqpEgJ42qYkLwBnJ1JazA8gdv-IuVa4abpHT8NP-I5HqO8PSFIxkdelxNnrEXEqKZi9K6wgUtFnQqtVs0OCeiJCRb7Qjhl_jxDok8lSxc576853tJy-ekIPalv7eGJKHpzu4keZ2VRv6_2Bc4dh-hyTTREdpvCjcY88C35Iaq2O9x4mxrj6Mx3ylDUXLAaP_BxlaiedwlRRFD-wY6Dp7YwL47S_2SOcu2VwRrIkMjSA4hu6PWWOH0SpM_h80eC"
+              />
+            </div>
+            <div class="p-6 flex-grow flex flex-col">
+              <h3
+                class="text-lg font-bold text-secondary dark:text-white uppercase mb-2"
+              >
+                Empresarial
+              </h3>
+              <p
+                class="text-xs text-gray-500 dark:text-gray-400 mb-4 flex-grow leading-relaxed"
+              >
+                Este seguro contribui para a continuidade de seus negócios, com
+                coberturas para situações de incêndio e mais.
+              </p>
+              <div class="mt-auto">
+                <span
+                  class="inline-block bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 text-[10px] px-2 py-1 rounded mb-3"
+                  >Empresarial</span
+                >
+                <a
+                  class="block text-primary text-xs font-bold uppercase hover:underline"
+                  href="#"
+                  >Solicitar Cotação</a
+                >
+              </div>
+            </div>
+          </div>
+          <div
+            class="bg-white dark:bg-[#252525] rounded-lg shadow-sm hover:shadow-lg transition duration-300 flex flex-col h-full"
+          >
+            <div class="h-48 overflow-hidden rounded-t-lg">
+              <img
+                alt="Condomínio"
+                class="w-full h-full object-cover hover:scale-105 transition duration-500"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBkJ3JR-rLdbQ-gay4PqfsPT287mv6kfwiX07ff8Nbd5niLoBScIVeeHf4XIxB6qqoazKeeqPsBnYRinTzgh4c1UFF9yuQLGXL9EW7QSdDp0-bSwMAnD8eRTqL8wMo3RT7pFjxaZdi6GmVhvLQi-3yLvDQPJhS3uDDDF_Yc5KCLkWiZdJ2Un91C05xsOAx5fx1lDYqDx6nKhsABSh1dxEUl5mIw9Cwu-i5kLPHPcyLaKdPQHLOY8EPtvI9wt-0lqv4gzBaTJd5WamF"
+              />
+            </div>
+            <div class="p-6 flex-grow flex flex-col">
+              <h3
+                class="text-lg font-bold text-secondary dark:text-white uppercase mb-2"
+              >
+                Condomínio
+              </h3>
+              <p
+                class="text-xs text-gray-500 dark:text-gray-400 mb-4 flex-grow leading-relaxed"
+              >
+                Síndicos e condôminos precisam estar tranquilos para as
+                eventualidades que podem acontecer.
+              </p>
+              <div class="mt-auto">
+                <span
+                  class="inline-block bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 text-[10px] px-2 py-1 rounded mb-3"
+                  >Empresarial</span
+                >
+                <a
+                  class="block text-primary text-xs font-bold uppercase hover:underline"
+                  href="#"
+                  >Solicitar Cotação</a
+                >
+              </div>
+            </div>
+          </div>
+          <div
+            class="bg-white dark:bg-[#252525] rounded-lg shadow-sm hover:shadow-lg transition duration-300 flex flex-col h-full"
+          >
+            <div class="h-48 overflow-hidden rounded-t-lg">
+              <img
+                alt="Odontológico"
+                class="w-full h-full object-cover hover:scale-105 transition duration-500"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2lxAxIL0iUYekttakyaPHwx6XC8MZL4jGJN3SLmbQ6jsiAMpJSGrlknMNOk0PIuzUIb4H2LER-098IJJQ31x8zuYDxPBecmOwbZb92kWmWtoW6eFAh8eOD1n7klx12TOTp0hHTcCw3BIgiahZRGUG4Z4HzDa8SamTcMJf3Bv_7_PmanfenlqBrU4tjkevhz-mp3H4wuNwKYHQPHZhPAgbfWhiNTCUrmIUJcA-d1rcl3DpGluaogqdgYHCGN4ChQ54cWJs2BdBpIWy"
+              />
+            </div>
+            <div class="p-6 flex-grow flex flex-col">
+              <h3
+                class="text-lg font-bold text-secondary dark:text-white uppercase mb-2"
+              >
+                Odontológico
+              </h3>
+              <p
+                class="text-xs text-gray-500 dark:text-gray-400 mb-4 flex-grow leading-relaxed"
+              >
+                Cuida da saúde bucal de seus colaboradores, unindo a atenção
+                corporativa ao atendimento personalizado.
+              </p>
+              <div class="mt-auto">
+                <span
+                  class="inline-block bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 text-[10px] px-2 py-1 rounded mb-3"
+                  >Empresarial</span
+                >
+                <a
+                  class="block text-primary text-xs font-bold uppercase hover:underline"
+                  href="#"
+                  >Solicitar Cotação</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-center mt-12">
+          <a
+            class="inline-block border border-secondary dark:border-white text-secondary dark:text-white hover:bg-secondary hover:text-white dark:hover:bg-white dark:hover:text-secondary font-semibold py-3 px-8 rounded transition duration-300 uppercase text-sm"
+            href="#"
+          >
+            Ver todos os produtos
+          </a>
+        </div>
+      </div>
+    </section>
+    <footer
+      class="bg-[#2c3e50] dark:bg-[#0f172a] text-white pt-16 pb-8 border-t-4 border-primary"
+    >
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+          <div>
+            <h3 class="text-xl font-bold mb-6 border-l-4 border-primary pl-3">
+              Endereço
+            </h3>
+            <div class="text-gray-300 text-sm space-y-4">
+              <p class="leading-relaxed">
+                Rua Dezesseis de Março, 336 - Loja 21<br />
+                Galeria Arnaldo Azevedo<br />
+                Centro – Petrópolis - RJ<br />
+                Em frente aos Correios
+              </p>
+              <div>
+                <strong class="block text-white mb-1">Horário:</strong>
+                <p>Segunda—sexta: 9h–17h</p>
+              </div>
+              <div>
+                <strong class="block text-white mb-1">Telefones:</strong>
+                <p>(24) 2244-6000</p>
+                <p>(24) 98802-3522</p>
+              </div>
+              <div>
+                <strong class="block text-white mb-1">E-mail:</strong>
+                <a
+                  class="hover:text-primary transition"
+                  href="mailto:alfaserrana@alfaserrana.com.br"
+                  >alfaserrana@alfaserrana.com.br</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="lg:col-span-2">
+            <h3 class="text-xl font-bold mb-6 border-l-4 border-primary pl-3">
+              Nossa Localização
+            </h3>
+            <div
+              class="bg-gray-200 dark:bg-gray-700 h-64 rounded-lg overflow-hidden relative group"
+            >
+              <img
+                alt="Mapa de localização"
+                class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition duration-500"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLWetr1ZxMgmYfGBpPgE9QWNIejjpW4F0USxbofegPdstua_U2g9NrDk3cZCedYkh4T91XcYRBoL06XbIYcaFn4uKcNY1ARuoQ60W5CZAQu_Cw0biFxhLcbS6MZ2jvQenK6d_Ju5lrv5SpMY6bfMdOvUkfbn1el6Orz3NuhhUa6O0u3TLBzs_aBM-g5-qWOOAd7mZAo5dyWpCAAC-yhnILLZS-7tL3PojDAV8bbt66kMIA67RlGtwdzOYWkT9BuL6HZZl9GDWvYmmc"
+              />
+              <div
+                class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-2 rounded shadow-lg flex flex-col items-center"
+              >
+                <span class="material-icons text-red-600 text-3xl">place</span>
+                <span class="text-xs font-bold text-gray-800"
+                  >Alfa Serrana</span
+                >
+              </div>
+              <div
+                class="absolute bottom-2 right-2 bg-white/90 px-2 py-1 text-[10px] text-gray-600 rounded"
+              >
+                Dados do mapa © Google
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="border-t border-gray-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400"
+        >
+          <p>
+            Desenvolvido Por <span class="text-white">Alessandro Correia</span>
+          </p>
+          <div class="flex space-x-4 mt-4 md:mt-0">
+            <a class="hover:text-primary transition" href="#">Início</a>
+            <a class="hover:text-primary transition" href="#">Quem Somos</a>
+            <a class="hover:text-primary transition" href="#"
+              >Área do Cliente</a
+            >
+            <a class="hover:text-primary transition" href="#">Para Você</a>
+            <a class="hover:text-primary transition" href="#">Para Empresas</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
