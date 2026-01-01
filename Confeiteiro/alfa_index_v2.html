@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Alfa Serrana Corretora de Seguros</title>
 
-    <!-- Tailwind CSS -->
+    <!-- Tailwind CSS (CDN) -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lucide Icons (Ícones) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 
     <!-- Google Fonts -->
     <link
@@ -14,15 +17,15 @@
       rel="stylesheet"
     />
 
-    <!-- Configuration -->
+    <!-- Configuração de Design -->
     <script>
       tailwind.config = {
         theme: {
           extend: {
             colors: {
               alfa: {
-                blue: "#002C5F", // Deep Navy
-                gold: "#FDB913", // Golden Yellow
+                blue: "#002C5F", // Azul Marinho Profundo (Identidade)
+                gold: "#FDB913", // Amarelo Ouro (Identidade)
                 light: "#f8fafc",
               },
             },
@@ -35,12 +38,13 @@
     </script>
 
     <style>
+      /* Estilos Globais */
       body {
         font-family: "Inter", sans-serif;
         scroll-behavior: smooth;
       }
 
-      /* Custom Scrollbar */
+      /* Scrollbar Personalizada */
       .custom-scrollbar::-webkit-scrollbar {
         width: 6px;
       }
@@ -55,15 +59,12 @@
         background: #94a3b8;
       }
 
-      /* Animation Classes */
+      /* Animações CSS */
       .fade-in {
-        animation: fadeIn 0.3s ease-in-out;
+        animation: fadeIn 0.5s ease-in-out forwards;
       }
       .slide-up {
-        animation: slideUp 0.3s ease-out;
-      }
-      .zoom-in {
-        animation: zoomIn 0.3s ease-out;
+        animation: slideUp 0.5s ease-out forwards;
       }
 
       @keyframes fadeIn {
@@ -84,51 +85,1017 @@
           opacity: 1;
         }
       }
-      @keyframes zoomIn {
-        from {
-          transform: scale(0.95);
-          opacity: 0;
-        }
-        to {
-          transform: scale(1);
-          opacity: 1;
-        }
-      }
 
-      @keyframes slide-in-from-bottom {
-        from {
-          transform: translateY(100%);
-          opacity: 0;
-        }
-        to {
-          transform: translateY(0);
-          opacity: 1;
-        }
+      /* Utilitários */
+      .hidden {
+        display: none !important;
       }
-
-      .animate-in {
-        animation-fill-mode: forwards;
-      }
-      .slide-in-from-bottom-10 {
-        animation: slide-in-from-bottom 0.3s ease-out;
+      .glass-effect {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
       }
     </style>
     <script type="importmap">
       {
         "imports": {
-          "react": "https://esm.sh/react@^19.2.3",
-          "react-dom/client": "https://esm.sh/react-dom@^19.2.3/client",
-          "react-dom": "https://esm.sh/react-dom@^19.2.3",
           "@google/genai": "https://esm.sh/@google/genai@^1.34.0",
+          "react": "https://esm.sh/react@^19.2.3",
           "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
-          "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
           "react/": "https://esm.sh/react@^19.2.3/"
         }
       }
     </script>
   </head>
-  <body class="bg-white min-h-screen">
-    <div id="root"></div>
-    <script type="module" src="./index.tsx"></script>
+  <body class="bg-slate-50 min-h-screen flex flex-col text-slate-800">
+    <!-- === NAVEGAÇÃO === -->
+    <nav
+      class="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md shadow-sm border-b border-gray-100"
+      id="navbar"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-20 items-center">
+          <!-- Logo -->
+          <div
+            class="flex items-center cursor-pointer group"
+            onclick="app.navigate('home')"
+          >
+            <div class="relative flex items-center">
+              <div class="flex -space-x-1">
+                <span
+                  class="text-4xl font-extrabold text-alfa-gold tracking-tighter transform group-hover:-translate-x-1 transition-transform"
+                  >a</span
+                >
+                <span
+                  class="text-4xl font-extrabold text-alfa-gold tracking-tighter transform group-hover:translate-x-1 transition-transform"
+                  >s</span
+                >
+              </div>
+              <div class="h-10 w-0.5 bg-alfa-blue mx-3"></div>
+              <div class="flex flex-col">
+                <span
+                  class="text-xl font-bold text-alfa-blue leading-none tracking-tight"
+                  >Alfa Serrana</span
+                >
+                <span
+                  class="text-[0.6rem] tracking-[0.2em] text-slate-500 font-semibold uppercase mt-1"
+                  >Seguros</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Menu Desktop -->
+          <div class="hidden md:flex items-center space-x-1">
+            <button
+              onclick="app.navigate('home')"
+              class="text-gray-600 hover:text-alfa-blue px-4 py-2 rounded-full text-sm font-medium transition-colors hover:bg-blue-50"
+            >
+              Início
+            </button>
+            <button
+              onclick="app.scrollTo('about')"
+              class="text-gray-600 hover:text-alfa-blue px-4 py-2 rounded-full text-sm font-medium transition-colors hover:bg-blue-50"
+            >
+              A Corretora
+            </button>
+            <button
+              onclick="app.scrollTo('services')"
+              class="text-gray-600 hover:text-alfa-blue px-4 py-2 rounded-full text-sm font-medium transition-colors hover:bg-blue-50"
+            >
+              Seguros
+            </button>
+            <button
+              onclick="app.scrollTo('blog')"
+              class="text-gray-600 hover:text-alfa-blue px-4 py-2 rounded-full text-sm font-medium transition-colors hover:bg-blue-50"
+            >
+              Blog
+            </button>
+
+            <button
+              onclick="app.scrollTo('quote')"
+              class="ml-4 bg-alfa-blue text-white hover:bg-blue-900 px-6 py-2.5 rounded-full text-sm font-bold transition-all shadow-lg hover:shadow-alfa-blue/30 transform hover:-translate-y-0.5 flex items-center gap-2"
+            >
+              <i data-lucide="shield" class="w-4 h-4"></i> Cotação Online
+            </button>
+          </div>
+
+          <!-- Botão Menu Mobile -->
+          <div class="md:hidden">
+            <button onclick="app.toggleMobileMenu()" class="text-alfa-blue p-2">
+              <i data-lucide="menu" class="w-8 h-8"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Menu Mobile (Expansível) -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-xl"
+      >
+        <div class="px-4 pt-2 pb-6 space-y-2">
+          <button
+            onclick="app.navigate('home'); app.toggleMobileMenu()"
+            class="block w-full text-left px-4 py-3 rounded-lg text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-alfa-blue"
+          >
+            Início
+          </button>
+          <button
+            onclick="app.scrollTo('about'); app.toggleMobileMenu()"
+            class="block w-full text-left px-4 py-3 rounded-lg text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-alfa-blue"
+          >
+            A Corretora
+          </button>
+          <button
+            onclick="app.scrollTo('services'); app.toggleMobileMenu()"
+            class="block w-full text-left px-4 py-3 rounded-lg text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-alfa-blue"
+          >
+            Nossos Seguros
+          </button>
+          <button
+            onclick="app.scrollTo('blog'); app.toggleMobileMenu()"
+            class="block w-full text-left px-4 py-3 rounded-lg text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-alfa-blue"
+          >
+            Blog
+          </button>
+          <button
+            onclick="app.scrollTo('quote'); app.toggleMobileMenu()"
+            class="block w-full text-center mt-4 bg-alfa-gold text-alfa-blue px-4 py-4 rounded-lg text-base font-bold"
+          >
+            Solicitar Cotação
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- === CONTEÚDO PRINCIPAL === -->
+    <main class="flex-grow pt-20">
+      <!-- VISTA: HOME -->
+      <div id="view-home">
+        <!-- Hero Section -->
+        <section
+          class="relative min-h-[600px] flex items-center overflow-hidden"
+        >
+          <!-- Imagem de Fundo -->
+          <div class="absolute inset-0 z-0">
+            <img
+              src="https://picsum.photos/id/192/1920/1080"
+              alt="Petrópolis"
+              class="w-full h-full object-cover"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-r from-alfa-blue/95 via-alfa-blue/80 to-transparent"
+            ></div>
+          </div>
+
+          <div
+            class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20"
+          >
+            <div class="max-w-2xl">
+              <div
+                class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full mb-8 border border-white/20 fade-in"
+              >
+                <i data-lucide="map-pin" class="w-4 h-4 text-alfa-gold"></i>
+                <span class="text-sm font-medium text-white tracking-wide"
+                  >Especialistas na Região Serrana</span
+                >
+              </div>
+
+              <h1
+                class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-6 fade-in"
+                style="animation-delay: 0.1s"
+              >
+                Segurança tradicional para tempos
+                <span class="text-alfa-gold">modernos.</span>
+              </h1>
+
+              <p
+                class="text-lg md:text-xl text-blue-100 mb-10 leading-relaxed fade-in"
+                style="animation-delay: 0.2s"
+              >
+                Há 25 anos protegendo famílias e empresas em Petrópolis.
+                Atendimento personalizado que entende as curvas da serra e as
+                necessidades do seu patrimônio.
+              </p>
+
+              <div
+                class="flex flex-col sm:flex-row gap-4 fade-in"
+                style="animation-delay: 0.3s"
+              >
+                <button
+                  onclick="app.scrollTo('quote')"
+                  class="px-8 py-4 bg-alfa-gold text-alfa-blue font-bold rounded-lg hover:bg-yellow-400 transition-all shadow-lg hover:shadow-yellow-500/30 flex items-center justify-center gap-2 group"
+                >
+                  Simular Agora
+                  <i
+                    data-lucide="arrow-right"
+                    class="w-5 h-5 group-hover:translate-x-1 transition-transform"
+                  ></i>
+                </button>
+                <button
+                  onclick="app.scrollTo('services')"
+                  class="px-8 py-4 bg-transparent border-2 border-white text-white font-bold rounded-lg hover:bg-white/10 transition-colors flex items-center justify-center"
+                >
+                  Conhecer Serviços
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Services Grid -->
+        <section id="services" class="py-24 bg-white">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+              <span
+                class="text-alfa-blue font-bold tracking-wider uppercase text-sm bg-blue-50 px-3 py-1 rounded-full"
+                >Nossas Soluções</span
+              >
+              <h2
+                class="text-3xl md:text-4xl font-bold text-gray-900 mt-4 mb-4"
+              >
+                Proteção completa para você
+              </h2>
+              <p class="text-gray-600 text-lg">
+                Selecione uma categoria para ver detalhes exclusivos das nossas
+                coberturas.
+              </p>
+            </div>
+
+            <div
+              id="services-container"
+              class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            >
+              <!-- Renderizado via JS -->
+            </div>
+          </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-24 bg-slate-50 relative overflow-hidden">
+          <div
+            class="absolute top-0 right-0 w-1/3 h-full bg-alfa-blue/5 skew-x-12 transform translate-x-20"
+          ></div>
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+              <div class="lg:w-1/2">
+                <div
+                  class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white"
+                >
+                  <img
+                    src="https://picsum.photos/id/404/800/600"
+                    alt="Equipe Alfa Serrana"
+                    class="w-full h-auto"
+                  />
+                  <div
+                    class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-8"
+                  >
+                    <p class="text-white font-bold text-lg">
+                      Sede no Centro Histórico
+                    </p>
+                    <p class="text-gray-300 text-sm">
+                      Rua do Imperador, Petrópolis
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="lg:w-1/2">
+                <h2 class="text-3xl md:text-4xl font-bold text-alfa-blue mb-6">
+                  Mais que uma corretora, seus vizinhos.
+                </h2>
+                <div class="space-y-6 text-gray-600 text-lg leading-relaxed">
+                  <p>
+                    A <strong>Alfa Serrana</strong> não é um algoritmo. Somos
+                    pessoas reais, que vivem na mesma cidade que você.
+                    Entendemos que um seguro residencial aqui precisa cobrir
+                    danos elétricos por conta dos raios no verão, e que o seguro
+                    auto precisa de guincho que suba ladeiras íngremes.
+                  </p>
+                  <p>
+                    Unimos a tradição do atendimento "olho no olho" com a
+                    agilidade da tecnologia para cotações e vistorias.
+                  </p>
+                </div>
+
+                <div class="grid grid-cols-2 gap-6 mt-10">
+                  <div
+                    class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex items-center gap-3"
+                  >
+                    <div class="bg-blue-50 p-2 rounded-lg">
+                      <i data-lucide="award" class="text-alfa-blue"></i>
+                    </div>
+                    <span class="font-bold text-gray-800"
+                      >Certificado SUSEP</span
+                    >
+                  </div>
+                  <div
+                    class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex items-center gap-3"
+                  >
+                    <div class="bg-blue-50 p-2 rounded-lg">
+                      <i data-lucide="clock" class="text-alfa-blue"></i>
+                    </div>
+                    <span class="font-bold text-gray-800">Suporte 24h</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Blog Section -->
+        <section id="blog" class="py-24 bg-white">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div
+              class="flex flex-col md:flex-row justify-between items-end mb-12 gap-4"
+            >
+              <div>
+                <span
+                  class="text-alfa-gold font-bold tracking-wider uppercase text-sm"
+                  >Blog & Dicas</span
+                >
+                <h2 class="text-3xl md:text-4xl font-bold text-alfa-blue mt-2">
+                  Informação que protege
+                </h2>
+              </div>
+              <div class="w-full md:w-auto">
+                <input
+                  type="text"
+                  id="blog-search"
+                  placeholder="Buscar artigos..."
+                  class="w-full md:w-64 px-4 py-2 border border-gray-200 rounded-full focus:outline-none focus:border-alfa-blue"
+                  onkeyup="app.filterBlog()"
+                />
+              </div>
+            </div>
+            <div
+              id="blog-container"
+              class="grid grid-cols-1 md:grid-cols-3 gap-8"
+            >
+              <!-- Renderizado via JS -->
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- VISTA: DETALHES (Inicialmente Oculta) -->
+      <div id="view-details" class="hidden min-h-screen bg-white pb-20">
+        <!-- Hero Detalhes -->
+        <div class="relative h-[400px] bg-slate-900">
+          <img
+            id="detail-img"
+            src=""
+            class="w-full h-full object-cover opacity-40"
+          />
+          <div class="absolute inset-0 flex items-center">
+            <div class="max-w-7xl mx-auto px-4 w-full">
+              <button
+                onclick="app.navigate('home')"
+                class="text-white/80 hover:text-white mb-6 flex items-center gap-2 transition-colors"
+              >
+                <i data-lucide="arrow-left"></i> Voltar
+              </button>
+              <h1
+                id="detail-title"
+                class="text-4xl md:text-5xl font-bold text-white mb-4"
+              ></h1>
+              <p
+                id="detail-subtitle"
+                class="text-xl text-gray-200 max-w-2xl"
+              ></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 -mt-20 relative z-10">
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Conteúdo Principal -->
+            <div
+              class="lg:col-span-2 bg-white rounded-2xl shadow-xl p-8 md:p-12"
+            >
+              <h3 class="text-2xl font-bold text-alfa-blue mb-6">
+                Sobre este Seguro
+              </h3>
+              <p
+                id="detail-desc"
+                class="text-gray-600 text-lg leading-relaxed mb-8"
+              ></p>
+
+              <div
+                class="bg-blue-50 border-l-4 border-alfa-blue p-6 rounded-r-xl mb-10"
+              >
+                <h4
+                  class="font-bold text-alfa-blue mb-2 flex items-center gap-2"
+                >
+                  <i data-lucide="map-pin"></i> Vantagem Local
+                </h4>
+                <p id="detail-local" class="text-gray-700"></p>
+              </div>
+
+              <h3 class="text-xl font-bold text-gray-900 mb-6">
+                Principais Coberturas
+              </h3>
+              <div
+                id="detail-coverages"
+                class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10"
+              ></div>
+
+              <h3 class="text-xl font-bold text-gray-900 mb-6">
+                Perguntas Frequentes
+              </h3>
+              <div id="detail-faq" class="space-y-3"></div>
+            </div>
+
+            <!-- Sidebar de Ação -->
+            <div class="lg:col-span-1">
+              <div
+                class="bg-white rounded-2xl shadow-xl p-8 sticky top-24 border-t-8 border-alfa-gold"
+              >
+                <h3 class="text-xl font-bold text-gray-900 mb-6">
+                  Solicitar Cotação
+                </h3>
+                <p class="text-sm text-gray-500 mb-6">
+                  Preencha seus dados para receber uma proposta personalizada
+                  deste seguro.
+                </p>
+
+                <form
+                  onsubmit="event.preventDefault(); app.scrollTo('quote');"
+                  class="space-y-4"
+                >
+                  <button
+                    type="submit"
+                    class="w-full bg-alfa-blue text-white font-bold py-4 rounded-lg hover:bg-blue-900 transition-colors shadow-lg"
+                  >
+                    Cotar Agora
+                  </button>
+                </form>
+
+                <div class="mt-8 pt-8 border-t border-gray-100">
+                  <h4 class="font-bold text-gray-900 mb-4">Por que a Alfa?</h4>
+                  <ul class="space-y-3">
+                    <li class="flex items-center gap-2 text-sm text-gray-600">
+                      <i data-lucide="check" class="text-green-500 w-4 h-4"></i>
+                      Atendimento Humano
+                    </li>
+                    <li class="flex items-center gap-2 text-sm text-gray-600">
+                      <i data-lucide="check" class="text-green-500 w-4 h-4"></i>
+                      Sinistro Descomplicado
+                    </li>
+                    <li class="flex items-center gap-2 text-sm text-gray-600">
+                      <i data-lucide="check" class="text-green-500 w-4 h-4"></i>
+                      Melhores Seguradoras
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FORMULÁRIO DE COTAÇÃO (COMPARTILHADO) -->
+      <section id="quote" class="py-24 bg-alfa-blue relative overflow-hidden">
+        <div
+          class="absolute top-0 left-0 w-96 h-96 bg-alfa-gold/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"
+        ></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="text-white">
+              <h2
+                class="text-alfa-gold font-bold tracking-wider uppercase text-sm mb-2"
+              >
+                Contato Rápido
+              </h2>
+              <h3 class="text-4xl font-bold mb-6">
+                Vamos proteger o seu futuro?
+              </h3>
+              <p class="text-blue-100 text-lg mb-8">
+                Preencha o formulário e um especialista entrará em contato em
+                até 30 minutos (horário comercial).
+              </p>
+
+              <div class="space-y-4">
+                <div class="flex items-center gap-4">
+                  <div
+                    class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-alfa-gold"
+                  >
+                    <i data-lucide="phone"></i>
+                  </div>
+                  <div>
+                    <p class="text-sm text-blue-200">Ligue para nós</p>
+                    <p class="font-bold text-xl">(24) 2222-9999</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-4">
+                  <div
+                    class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-alfa-gold"
+                  >
+                    <i data-lucide="mail"></i>
+                  </div>
+                  <div>
+                    <p class="text-sm text-blue-200">E-mail</p>
+                    <p class="font-bold text-xl">contato@alfaserrana.com.br</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-2xl p-8 shadow-2xl">
+              <form id="quote-form" onsubmit="app.submitForm(event)">
+                <div class="space-y-4">
+                  <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1"
+                      >Nome</label
+                    >
+                    <input
+                      type="text"
+                      required
+                      class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-alfa-blue bg-gray-50"
+                    />
+                  </div>
+                  <div class="grid grid-cols-2 gap-4">
+                    <div>
+                      <label
+                        class="block text-sm font-medium text-gray-700 mb-1"
+                        >Telefone</label
+                      >
+                      <input
+                        type="tel"
+                        required
+                        class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-alfa-blue bg-gray-50"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        class="block text-sm font-medium text-gray-700 mb-1"
+                        >Interesse</label
+                      >
+                      <select
+                        id="form-interest"
+                        class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-alfa-blue bg-gray-50"
+                      >
+                        <option value="Auto">Seguro Auto</option>
+                        <option value="Residencial">Residencial</option>
+                        <option value="Vida">Vida</option>
+                        <option value="Empresa">Empresarial</option>
+                      </select>
+                    </div>
+                  </div>
+                  <button
+                    type="submit"
+                    class="w-full bg-alfa-gold text-alfa-blue font-bold py-4 rounded-lg hover:bg-yellow-400 transition-colors shadow-md mt-2"
+                  >
+                    Solicitar Contato
+                  </button>
+                </div>
+              </form>
+              <div id="form-success" class="hidden text-center py-10">
+                <div
+                  class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4"
+                >
+                  <i data-lucide="check" class="w-8 h-8"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900">
+                  Recebemos seu pedido!
+                </h3>
+                <p class="text-gray-600 mt-2">
+                  Em breve um consultor entrará em contato.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- === FOOTER === -->
+    <footer
+      class="bg-slate-900 text-white pt-16 pb-8 border-t border-slate-800"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+          <div class="col-span-1 md:col-span-1">
+            <span class="text-2xl font-bold text-alfa-gold">as.</span>
+            <p class="text-gray-400 text-sm mt-4">
+              Corretora tradicional de Petrópolis. Protegendo o que importa
+              desde 1999.
+            </p>
+          </div>
+          <div>
+            <h4 class="font-bold text-lg mb-4">Seguros</h4>
+            <ul class="space-y-2 text-sm text-gray-400">
+              <li>
+                <a
+                  href="#"
+                  onclick="app.navigate('details', 'auto')"
+                  class="hover:text-white"
+                  >Automóvel</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  onclick="app.navigate('details', 'home')"
+                  class="hover:text-white"
+                  >Residencial</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  onclick="app.navigate('details', 'life')"
+                  class="hover:text-white"
+                  >Vida</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold text-lg mb-4">Contato</h4>
+            <ul class="space-y-2 text-sm text-gray-400">
+              <li>(24) 2222-9999</li>
+              <li>Rua do Imperador, 123</li>
+              <li>Petrópolis - RJ</li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold text-lg mb-4">Redes</h4>
+            <div class="flex gap-4">
+              <a
+                href="#"
+                class="w-8 h-8 bg-slate-800 flex items-center justify-center rounded-full hover:bg-alfa-blue"
+                ><i data-lucide="instagram" class="w-4 h-4"></i
+              ></a>
+              <a
+                href="#"
+                class="w-8 h-8 bg-slate-800 flex items-center justify-center rounded-full hover:bg-alfa-blue"
+                ><i data-lucide="facebook" class="w-4 h-4"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="border-t border-slate-800 pt-8 text-center text-xs text-gray-500"
+        >
+          &copy; 2024 Alfa Serrana Corretora de Seguros. Todos os direitos
+          reservados.
+        </div>
+      </div>
+    </footer>
+
+    <!-- === CHATBOT WIDGET === -->
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+      <!-- Janela do Chat -->
+      <div
+        id="chat-window"
+        class="hidden mb-4 bg-white w-80 sm:w-96 rounded-2xl shadow-2xl overflow-hidden border border-gray-200 flex flex-col slide-up"
+        style="height: 400px"
+      >
+        <div
+          class="bg-alfa-blue p-4 flex justify-between items-center text-white shadow-md"
+        >
+          <div class="flex items-center gap-2">
+            <div class="bg-white/10 p-1.5 rounded-full">
+              <i data-lucide="bot" class="text-alfa-gold w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-sm">Assistente Alfa</h3>
+              <p class="text-[10px] text-blue-200 uppercase tracking-wider">
+                Online
+              </p>
+            </div>
+          </div>
+          <button
+            onclick="app.toggleChat()"
+            class="text-blue-200 hover:text-white"
+          >
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
+
+        <div
+          id="chat-messages"
+          class="flex-1 p-4 overflow-y-auto bg-slate-50 space-y-3 custom-scrollbar"
+        >
+          <!-- Mensagem Inicial -->
+          <div class="flex justify-start">
+            <div
+              class="bg-white text-gray-700 border border-gray-200 rounded-2xl rounded-tl-none px-4 py-3 text-sm shadow-sm max-w-[85%]"
+            >
+              Olá! Sou a inteligência artificial da Alfa Serrana. Posso tirar
+              dúvidas sobre coberturas ou te ajudar a iniciar uma cotação. Como
+              posso ajudar?
+            </div>
+          </div>
+        </div>
+
+        <div class="p-3 bg-white border-t border-gray-100 flex gap-2">
+          <input
+            type="text"
+            id="chat-input"
+            placeholder="Digite sua dúvida..."
+            class="flex-1 bg-gray-50 border border-gray-200 rounded-full px-4 py-2 text-sm focus:outline-none focus:border-alfa-blue focus:ring-1 focus:ring-alfa-blue transition-all"
+            onkeydown="if(event.key === 'Enter') app.sendMessage()"
+          />
+          <button
+            onclick="app.sendMessage()"
+            class="bg-alfa-gold text-alfa-blue p-2 rounded-full hover:bg-yellow-400 transition-colors shadow-sm disabled:opacity-50"
+          >
+            <i data-lucide="send" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Botão Flutuante -->
+      <button
+        onclick="app.toggleChat()"
+        class="bg-alfa-blue text-white p-4 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 group"
+      >
+        <i
+          data-lucide="message-circle"
+          class="w-7 h-7 fill-current group-hover:animate-pulse"
+        ></i>
+      </button>
+    </div>
+
+    <!-- === LÓGICA DA APLICAÇÃO (JS) === -->
+    <script>
+      // --- DADOS ---
+      const DB = {
+        services: [
+          {
+            id: "auto",
+            title: "Seguro Auto",
+            icon: "car",
+            desc: "Proteção para seu veículo com guincho ilimitado.",
+          },
+          {
+            id: "home",
+            title: "Residencial",
+            icon: "home",
+            desc: "Cobertura contra incêndio, roubo e danos elétricos.",
+          },
+          {
+            id: "life",
+            title: "Seguro de Vida",
+            icon: "heart",
+            desc: "Segurança financeira para quem você ama.",
+          },
+          {
+            id: "business",
+            title: "Empresarial",
+            icon: "briefcase",
+            desc: "Proteção para seu comércio ou indústria.",
+          },
+          {
+            id: "moto",
+            title: "Moto",
+            icon: "bike",
+            desc: "Liberdade na estrada com assistência especializada.",
+          },
+          {
+            id: "travel",
+            title: "Viagem",
+            icon: "plane",
+            desc: "Tranquilidade para destinos nacionais e internacionais.",
+          },
+        ],
+        details: {
+          auto: {
+            title: "Seguro Automóvel",
+            subtitle: "Tranquilidade na Serra e na cidade.",
+            img: "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&q=80&w=1920",
+            desc: "Dirigir em Petrópolis exige cuidado com neblina e pistas sinuosas. Nosso seguro auto oferece guincho que atende áreas de difícil acesso e cobertura para faróis e vidros, essenciais na região.",
+            local: "Parceria com oficinas locais para agilizar reparos.",
+            coverages: [
+              "Colisão e Roubo",
+              "Danos a Terceiros",
+              "Carro Reserva",
+              "Vidros e Faróis",
+            ],
+            faq: [
+              "O guincho sobe ladeira íngreme? Sim, temos parceiros especializados.",
+              "Cobre buracos? Danos a pneus podem ser contratados à parte.",
+            ],
+          },
+          home: {
+            title: "Seguro Residencial",
+            subtitle: "Protegendo seu lar dos imprevistos da serra.",
+            img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=1920",
+            desc: "Raios e vendavais são comuns no nosso verão. O seguro residencial protege seus eletrônicos contra queima e seu telhado contra ventos fortes.",
+            local: "Assistência 24h com eletricistas locais.",
+            coverages: ["Incêndio", "Danos Elétricos", "Vendaval", "Roubo"],
+            faq: [
+              "Cobre queima de geladeira? Sim, na cobertura de Danos Elétricos.",
+              "É caro? Não, custa menos que um jantar por mês.",
+            ],
+          },
+          // Fallback genérico para outros
+          default: {
+            title: "Seguro Especializado",
+            subtitle: "Coberturas sob medida para sua necessidade.",
+            img: "https://picsum.photos/1920/600",
+            desc: "Trabalhamos com as melhores seguradoras para oferecer a proteção ideal para este ramo. Entre em contato para uma consultoria detalhada.",
+            local: "Atendimento presencial no centro de Petrópolis.",
+            coverages: [
+              "Cobertura Básica",
+              "Responsabilidade Civil",
+              "Assistência 24h",
+              "Danos Materiais",
+            ],
+            faq: [
+              "Como contratar? Solicite uma cotação online.",
+              "Quais as formas de pagamento? Boleto, débito ou cartão.",
+            ],
+          },
+        },
+        blog: [
+          {
+            title: "Cuidados ao dirigir na neblina",
+            cat: "Auto",
+            date: "10 Out",
+            desc: "Dicas essenciais para quem sobe e desce a serra diariamente.",
+          },
+          {
+            title: "Proteja seus eletrônicos no verão",
+            cat: "Residencial",
+            date: "25 Set",
+            desc: "Como o seguro residencial cobre danos por raios e oscilação de energia.",
+          },
+          {
+            title: "Seguro de Vida não é só para morte",
+            cat: "Vida",
+            date: "15 Ago",
+            desc: "Conheça as coberturas em vida como doenças graves e invalidez.",
+          },
+        ],
+      };
+
+      // --- APLICAÇÃO ---
+      const app = {
+        init: () => {
+          lucide.createIcons();
+          app.renderServices();
+          app.renderBlog();
+        },
+
+        // Navegação (SPA Simples)
+        navigate: (viewId, param = null) => {
+          document.getElementById("view-home").classList.add("hidden");
+          document.getElementById("view-details").classList.add("hidden");
+          window.scrollTo(0, 0);
+
+          if (viewId === "home") {
+            document.getElementById("view-home").classList.remove("hidden");
+          } else if (viewId === "details") {
+            app.renderDetails(param);
+            document.getElementById("view-details").classList.remove("hidden");
+          }
+        },
+
+        scrollTo: (elementId) => {
+          app.navigate("home");
+          setTimeout(() => {
+            const el = document.getElementById(elementId);
+            if (el) el.scrollIntoView({ behavior: "smooth" });
+          }, 100);
+        },
+
+        toggleMobileMenu: () => {
+          document.getElementById("mobile-menu").classList.toggle("hidden");
+        },
+
+        // Renderização Dinâmica
+        renderServices: () => {
+          const container = document.getElementById("services-container");
+          container.innerHTML = DB.services
+            .map(
+              (s) => `
+                    <div class="bg-slate-50 rounded-xl p-8 hover:bg-white hover:shadow-xl transition-all duration-300 border border-transparent hover:border-alfa-gold/30 group cursor-pointer" onclick="app.navigate('details', '${s.id}')">
+                        <div class="w-14 h-14 bg-white rounded-lg flex items-center justify-center mb-6 shadow-sm group-hover:bg-alfa-blue transition-colors">
+                            <i data-lucide="${s.icon}" class="w-8 h-8 text-alfa-blue group-hover:text-alfa-gold"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">${s.title}</h3>
+                        <p class="text-gray-600 mb-4">${s.desc}</p>
+                        <span class="text-alfa-blue font-bold text-sm group-hover:translate-x-2 transition-transform inline-flex items-center gap-1">Saiba mais <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+                    </div>
+                `
+            )
+            .join("");
+          lucide.createIcons();
+        },
+
+        renderBlog: () => {
+          const container = document.getElementById("blog-container");
+          container.innerHTML = DB.blog
+            .map(
+              (post) => `
+                    <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-lg transition-all">
+                        <div class="p-6">
+                            <span class="text-xs font-bold text-alfa-blue bg-blue-50 px-2 py-1 rounded mb-3 inline-block">${post.cat}</span>
+                            <h3 class="font-bold text-lg text-gray-900 mb-2">${post.title}</h3>
+                            <p class="text-gray-600 text-sm mb-4">${post.desc}</p>
+                            <a href="#" class="text-sm font-bold text-alfa-gold hover:underline">Ler artigo</a>
+                        </div>
+                    </div>
+                `
+            )
+            .join("");
+        },
+
+        renderDetails: (id) => {
+          const data = DB.details[id] || DB.details["default"];
+          document.getElementById("detail-title").innerText = data.title;
+          document.getElementById("detail-subtitle").innerText = data.subtitle;
+          document.getElementById("detail-desc").innerText = data.desc;
+          document.getElementById("detail-local").innerText = data.local;
+          document.getElementById("detail-img").src = data.img;
+
+          document.getElementById("detail-coverages").innerHTML = data.coverages
+            .map(
+              (c) => `
+                    <div class="flex items-center gap-3 p-4 bg-slate-50 rounded-lg border border-gray-100">
+                        <i data-lucide="check-circle" class="text-green-500 w-5 h-5"></i>
+                        <span class="font-medium text-gray-800">${c}</span>
+                    </div>
+                `
+            )
+            .join("");
+
+          document.getElementById("detail-faq").innerHTML = data.faq
+            .map(
+              (f) => `
+                    <div class="border border-gray-200 rounded-lg p-4 bg-white">
+                        <p class="font-bold text-gray-800 text-sm mb-1">${
+                          f.split("?")[0]
+                        }?</p>
+                        <p class="text-gray-600 text-sm">${
+                          f.split("?")[1] || ""
+                        }</p>
+                    </div>
+                `
+            )
+            .join("");
+
+          lucide.createIcons();
+        },
+
+        filterBlog: () => {
+          // Filtro simples visual (pode ser expandido)
+          const term = document
+            .getElementById("blog-search")
+            .value.toLowerCase();
+          // Apenas exibe console por enquanto, lógica real requer re-renderização
+          if (term.length > 0) console.log("Filtrando por: " + term);
+        },
+
+        // Formulário
+        submitForm: (e) => {
+          e.preventDefault();
+          document.getElementById("quote-form").classList.add("hidden");
+          document.getElementById("form-success").classList.remove("hidden");
+          document.getElementById("form-success").classList.add("fade-in");
+        },
+
+        // Chat
+        toggleChat: () => {
+          document.getElementById("chat-window").classList.toggle("hidden");
+        },
+
+        sendMessage: () => {
+          const input = document.getElementById("chat-input");
+          const text = input.value.trim();
+          if (!text) return;
+
+          const container = document.getElementById("chat-messages");
+
+          // User Msg
+          container.innerHTML += `
+                    <div class="flex justify-end fade-in">
+                        <div class="bg-alfa-blue text-white rounded-2xl rounded-tr-none px-4 py-2 text-sm max-w-[85%]">
+                            ${text}
+                        </div>
+                    </div>
+                `;
+          input.value = "";
+          container.scrollTop = container.scrollHeight;
+
+          // Mock Resposta da "IA"
+          setTimeout(() => {
+            container.innerHTML += `
+                        <div class="flex justify-start fade-in">
+                            <div class="bg-white text-gray-700 border border-gray-200 rounded-2xl rounded-tl-none px-4 py-3 text-sm shadow-sm max-w-[85%]">
+                                Entendi. Para te dar uma resposta precisa sobre preços e coberturas para seu caso, recomendo que preencha nosso formulário de cotação ou nos chame no WhatsApp. Posso ajudar com algo mais?
+                            </div>
+                        </div>
+                    `;
+            container.scrollTop = container.scrollHeight;
+          }, 1000);
+        },
+      };
+
+      // Inicializar
+      window.onload = app.init;
+    </script>
   </body>
 </html>
